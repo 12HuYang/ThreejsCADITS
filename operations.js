@@ -3,8 +3,19 @@
  * Boolean operations with selected primitives
  */
 
-function addtoObjs() {
-    var obj={};
+function addtoObjs(csgmesh,base1,base2) {
+    if(typeof (base1)==='undefined') base1=null;
+    if(typeof (base2)==='undefined') base2=null;
+    var obj={
+        meshobj: csgmesh,
+        csgobj: new ThreeBSP(csgmesh),
+        baseobj1: base1,
+        baseobj2: base2,
+
+
+    };
+
+
 }
 
 function subtract() {
