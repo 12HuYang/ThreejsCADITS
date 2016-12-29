@@ -3,17 +3,16 @@
  * Boolean operations with selected primitives
  */
 
-function addtoObjs(csgmesh,base1,base2) {
+function addtoObjs(csg,base1,base2) {
     if(typeof (base1)==='undefined') base1=null;
     if(typeof (base2)==='undefined') base2=null;
     var obj={
-        meshobj: csgmesh,
-        csgobj: new ThreeBSP(csgmesh),
+        csgobj: csg,
         baseobj1: base1,
-        baseobj2: base2,
-
-
+        baseobj2: base2
     };
+
+    csgobjs.push(obj);
 
 
 }
@@ -27,6 +26,7 @@ function subtract() {
     var first=meshfind(selection[0]);
     var second=meshfind(selection[1]);
     var newcsg=csgs[first].subtract(csgs[second]);
+    addtoObjs(newcsg,csgs[first],csgs[second]);
     var big,small;
     if(first>second){
         big=first;
@@ -37,6 +37,8 @@ function subtract() {
     }
     csgs.splice(small,1);
     csgs.splice(big-1,1);
+    csgobjs.splice(small,1);
+    csgobjs.splice(big-1,1);
     csgs.push(newcsg);
     scene.remove(meshs[first]);
     scene.remove(meshs[second]);
@@ -57,6 +59,7 @@ function union() {
     var first=meshfind(selection[0]);
     var second=meshfind(selection[1]);
     var newcsg=csgs[first].union(csgs[second]);
+    addtoObjs(newcsg,csgs[first],csgs[second]);
     var big,small;
     if(first>second){
         big=first;
@@ -68,6 +71,8 @@ function union() {
     csgs.splice(small,1);
     csgs.splice(big-1,1);
     csgs.push(newcsg);
+    csgobjs.splice(small,1);
+    csgobjs.splice(big-1,1);
     scene.remove(meshs[first]);
     scene.remove(meshs[second]);
     var mesh=csgs[csgs.length-1].toMesh(new THREE.MeshLambertMaterial({color: 0xa9ff,shading:THREE.SmoothShading}));
@@ -87,6 +92,7 @@ function intersect() {
     var first=meshfind(selection[0]);
     var second=meshfind(selection[1]);
     var newcsg=csgs[first].intersect(csgs[second]);
+    addtoObjs(newcsg,csgs[first],csgs[second]);
     var big,small;
     if(first>second){
         big=first;
@@ -97,6 +103,8 @@ function intersect() {
     }
     csgs.splice(small,1);
     csgs.splice(big-1,1);
+    csgobjs.splice(small,1);
+    csgobjs.splice(big-1,1);
     csgs.push(newcsg);
     scene.remove(meshs[first]);
     scene.remove(meshs[second]);
@@ -125,4 +133,25 @@ function Restart() {
         csgs=[];
         selection=[];
     }
+}
+
+function GoBack() {
+    var mesh=meshs.pop();
+    scene.remove(mesh);
+    csgs.pop();
+    var csgobj=csgobjs.pop();
+    if(csgobj.baseobj1 && csgobj.baseobj2)
+    {
+        addtoObjs(csgobj.baseobj1);
+        addtoObjs(csgobj.baseobj2);
+        csgs.push(csgobj.baseobj1);
+        csgs.push(csgobj.baseobj2);
+        var mesh1=csgobj.baseobj1.toMesh(new THREE.MeshLambertMaterial({color: 0xa9ff,shading:THREE.SmoothShading}));
+        meshs.push(mesh1);
+        scene.add(mesh1);
+        var mesh2=csgobj.baseobj2.toMesh(new THREE.MeshLambertMaterial({color: 0xa9ff,shading:THREE.SmoothShading}));
+        meshs.push(mesh2);
+        scene.add(mesh2);
+    }
+
 }
