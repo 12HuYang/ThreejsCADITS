@@ -10,6 +10,8 @@ function cylinder_x() {
     var cy_xCSG=new ThreeBSP(cy_xMesh);
     csgs.push(cy_xCSG);
     addtoObjs(cy_xCSG);
+    var obj=csgobjs[csgobjs.length-1];
+    obj.name="cyx";
     var last=csgs.length-1;
     mesh=csgs[last].toMesh(new THREE.MeshLambertMaterial({color: 0xa9ff,shading:THREE.SmoothShading}));
     currentHex=mesh.material.emissive.getHex();
@@ -27,6 +29,8 @@ function cylinder_y() {
     var cy_yCSG= new ThreeBSP(cy_yMesh);
     csgs.push(cy_yCSG);
     addtoObjs(cy_yCSG);
+    var obj=csgobjs[csgobjs.length-1];
+    obj.name="cyy";
     var last=csgs.length-1;
     mesh=csgs[last].toMesh(new THREE.MeshLambertMaterial({color: 0xa9ff,shading:THREE.SmoothShading}));
     currentHex=mesh.material.emissive.getHex();
@@ -44,6 +48,8 @@ function cylinder_z() {
     var cy_zCSG= new ThreeBSP(cy_zMesh);
     csgs.push(cy_zCSG);
     addtoObjs(cy_zCSG);
+    var obj=csgobjs[csgobjs.length-1];
+    obj.name="cyz";
     var last=csgs.length-1;
     mesh=csgs[last].toMesh(new THREE.MeshLambertMaterial({color: 0xa9ff,shading:THREE.SmoothShading}));
     currentHex=mesh.material.emissive.getHex();
@@ -61,6 +67,8 @@ function cube() {
     var cubeCSG= new ThreeBSP(cubeMesh);
     csgs.push(cubeCSG);
     addtoObjs(cubeCSG);
+    var obj=csgobjs[csgobjs.length-1];
+    obj.name="excube";
     var last=csgs.length-1;
     mesh=csgs[last].toMesh(new THREE.MeshLambertMaterial({color: 0xa9ff,shading:THREE.SmoothShading}));
     currentHex=mesh.material.emissive.getHex();
@@ -77,6 +85,8 @@ function sphere() {
     var sphereCSG=new ThreeBSP(sphereMesh);
     csgs.push(sphereCSG);
     addtoObjs(sphereCSG);
+    var obj=csgobjs[csgobjs.length-1];
+    obj.name="exsphere";
     var last=csgs.length-1;
     mesh=csgs[last].toMesh(new THREE.MeshLambertMaterial({color: 0xa9ff,shading:THREE.SmoothShading}));
     currentHex=mesh.material.emissive.getHex();

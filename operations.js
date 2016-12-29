@@ -27,6 +27,9 @@ function subtract() {
     var second=meshfind(selection[1]);
     var newcsg=csgs[first].subtract(csgs[second]);
     addtoObjs(newcsg,csgs[first],csgs[second]);
+    var obj=csgobjs[csgobjs.length-1];
+    obj.basename1=csgobjs[first].name;
+    obj.basename2=csgobjs[second].name;
     var big,small;
     if(first>second){
         big=first;
@@ -60,6 +63,9 @@ function union() {
     var second=meshfind(selection[1]);
     var newcsg=csgs[first].union(csgs[second]);
     addtoObjs(newcsg,csgs[first],csgs[second]);
+    var obj=csgobjs[csgobjs.length-1];
+    obj.basename1=csgobjs[first].name;
+    obj.basename2=csgobjs[second].name;
     var big,small;
     if(first>second){
         big=first;
@@ -93,6 +99,9 @@ function intersect() {
     var second=meshfind(selection[1]);
     var newcsg=csgs[first].intersect(csgs[second]);
     addtoObjs(newcsg,csgs[first],csgs[second]);
+    var obj=csgobjs[csgobjs.length-1];
+    obj.basename1=csgobjs[first].name;
+    obj.basename2=csgobjs[second].name;
     var big,small;
     if(first>second){
         big=first;
@@ -140,10 +149,15 @@ function GoBack() {
     scene.remove(mesh);
     csgs.pop();
     var csgobj=csgobjs.pop();
+    InitValidation(csgobj);
     if(csgobj.baseobj1 && csgobj.baseobj2)
     {
         addtoObjs(csgobj.baseobj1);
+        var obj1=csgobjs[csgobjs.length-1];
+        obj1.name=csgobj.basename1;
         addtoObjs(csgobj.baseobj2);
+        var obj2=csgobjs[csgobjs.length-1];
+        obj2.name=csgobj.basename2;
         csgs.push(csgobj.baseobj1);
         csgs.push(csgobj.baseobj2);
         var mesh1=csgobj.baseobj1.toMesh(new THREE.MeshLambertMaterial({color: 0xa9ff,shading:THREE.SmoothShading}));
@@ -154,4 +168,13 @@ function GoBack() {
         scene.add(mesh2);
     }
 
+}
+
+function InitValidation(csgobj) {
+    if(csgobj.name=="exsphere") exsphere=false;
+    if(csgobj.name=="excube") excube=false;
+    if(csgobj.name=="cyz") cyz=false;
+    if(csgobj.name=="cyy") cyy=false;
+    if(csgobj.name=="cyx") cyx=false;
+    
 }
