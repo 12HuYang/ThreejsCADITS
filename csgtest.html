@@ -1,0 +1,258 @@
+<html>
+<head>
+    <!--script src="http://mrdoob.github.com/three.js/src/core/Raycaster.js"></script-->
+    <!--script src="https://threejs.org/build/three.js"></script-->
+    <script src="vendor/three.js/Three.js"></script>
+    <script src="vendor/three.js/RequestAnimationFrame.js"></script>
+    <script src="vendor/three.js/Stats.js"></script>
+    <script src="vendor/three.js/Detector.js"></script>
+    <!--script src="vendor/three.js/ThreeBSP.js"></script-->
+
+    <!--script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r73/three.min.js"></script-->
+    <script src="http://mrdoob.github.com/three.js/build/three.min.js"></script>
+    <script src="http://mrdoob.github.com/three.js/examples/js/libs/stats.min.js"></script>
+    <script src="https://dl.dropboxusercontent.com/u/3587259/Code/Threejs/OrbitControls.js"></script>
+
+
+    <!--script src="http://github.com/evanw/csg.js"></script-->
+
+    <!--script src="vendor/csg.js"></script>
+    <script src="vendor/ThreeCSG.js"></script-->
+    <script src="vendor/ThreeCSG_02.js"></script>
+
+    <script src="THREEx.GeometryUtils.js"></script>
+    <script src="THREEx.screenshot.js"></script>
+
+    <script src="operations.js"></script>
+    <script src="Primitives.js"></script>
+    <style>
+        body {
+            background: #408040;
+            overflow:hidden;
+            padding:0;
+            margin:0;
+
+            color: #CCCCCC;
+            font-family:Monospace;
+            font-size:13px;
+            text-align:center;
+        }
+        #info {
+            position: absolute;
+            top: 0px; width: 100%;
+            padding: 5px;
+        }
+        #info a {
+            color	: #FFAAFF;
+        }
+    </style>
+</head>
+<body>
+<div id="container"></div>
+<div id="info">
+    <!--a href="http://webglreport.com/">WebGL support test</a> Test your browser if it supports WebGL 1 or not <br-->
+    <!--a href="/blog/2011/12/10/constructive-solid-geometry-with-csg-js/" target="_blank">LearningThree.js</a> - Contructive Solid Geometry-->
+    <!--br/>
+    Use
+    <a href="http://evanw.github.com/csg.js/" target="_blank">csg.js</a>
+    ,
+    <a href="http://chandler.prallfamily.com/2011/12/constructive-solid-geometry-with-three-js/" target="_blank">ThreeCSG.js</a>
+    and
+    <a href="https://github.com/mrdoob/three.js/" target="_blank">three.js</a>
+    <br/-->
+    Basic Shapes:
+    <!--a href="#cylinder_x" onclick="window.location.href=this.href;window.location.reload();">cylinder_x</a-->
+    <a href="#cylinder_x" onclick="cylinder_x();">cylinder_x</a>
+    <!--a href="#cylinder_y" onclick="window.location.href=this.href;window.location.reload();">cylinder_y</a-->
+    <a href="#cylinder_y" onclick="cylinder_y();">cylinder_y</a>
+    <!--a href="#cylinder_z" onclick="window.location.href=this.href;window.location.reload();">cylinder_z</a-->
+    <a href="#cylinder_z" onclick="cylinder_z();">cylinder_z</a>
+    <!--a href="#cube" onclick="window.location.href=this.href;window.location.reload();">cube</a-->
+    <a href="#cube" onclick="cube();">cube</a>
+    <!--a href="#sphere" onclick="window.location.href=this.href;window.location.reload();">sphere</a-->
+    <a href="#sphere" onclick="sphere();">sphere</a>
+    <br><br/>
+    Operations:
+    <!--a href="#subtract" onclick="window.location.href=this.href;window.location.reload();">subtract</a-->
+    <a href="#subtract" onclick="subtract();">subtract</a>
+    -
+    <!--a href="#union" onclick="window.location.href=this.href;window.location.reload();">union</a-->
+    <a href="#union" onclick="union();">union</a>
+    -
+    <!--a href="#intersect" onclick="window.location.href=this.href;window.location.reload();">intersect</a-->
+    <a href="#intersect" onclick="intersect();">intersect</a>
+    <br><br/>
+    Edit:
+    <a href="#Restart" onclick="Restart();">Restart</a>
+    -
+    <!--a href="#GoBack" onclick="">GoBack</a-->
+    <br>
+</div>
+
+<script type="text/javascript">
+    var camera, scene, renderer,raycaster,stats;
+    var geometry, material, mesh;
+    var mouse =  new THREE.Vector2(),INTERSECTED=null,ORIGIN=null;
+    var windowHalfX=window.innerWidth/2;
+    var windowHalfY=window.innerHeight/2;
+    var currentHex;
+    cyx=false,cyy=false,cyz=false,excube=false,exsphere=false;
+    csgmouseX=0;
+    csgmouseY=0;
+    objs=[];
+    csgs=[];
+    meshs=[];
+    selection=[];
+    resultcsgs=[];
+    csginit();
+    csganimate();
+
+    function csginit() {
+        scene=new THREE.Scene();
+        if(!scene.background)
+        {
+            var col=new THREE.Color(0x28ad46);
+            scene.background=col;
+        }
+
+
+        camera=new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 10000);
+        camera.position.set(0,0,4);
+        camera.lookAt(scene.position);
+        scene.add(camera);
+
+        var dlight=new THREE.DirectionalLight();
+        //var dlight=new THREE.DirectionalLight();
+        dlight.color.setHSL(0.63, 100, 62.35 );
+        dlight.position.set(1,1,1).normalize();
+        scene.add(dlight);
+
+        var dlight_2=new THREE.DirectionalLight();
+        //var dlight_2=new THREE.DirectionalLight(0x408040,1.5);
+        dlight_2.color.setHSL(0.63,42.86,56.08);
+        dlight_2.position.set(0,-1,0).normalize();
+        scene.add(dlight_2);
+
+        var plight=new THREE.PointLight(0xffffff,0.85);
+        plight.color.setHSL(0, 0.0, 74.90);
+        plight.position.set( -3, 3, -3);
+        scene.add(plight);
+
+        var plight_2=new THREE.PointLight( 0xffffff, 0.85 );
+        plight.color.setHSL(0, 0.0, 74.90);
+        plight_2.position.set(2,-2,2);
+        scene.add(plight_2);
+
+        document.addEventListener("mousemove",onDocumentMouseMove,false);
+        document.addEventListener("click",onDocumentClick,false);
+
+
+        renderer=new THREE.WebGLRenderer({
+            antialias		: true,
+            preserveDrawingBuffer	: true
+        });
+        renderer.setSize(window.innerWidth,window.innerHeight);
+        document.getElementById('container').appendChild(renderer.domElement);
+        controls = new THREE.OrbitControls (camera, renderer.domElement);
+        window.addEventListener( 'resize', onWindowResize, false );
+
+        raycaster = new THREE.Raycaster();
+        stats=new Stats();
+        document.getElementById('container').appendChild(stats.domElement);
+
+    }
+
+    function csganimate() {
+        requestAnimationFrame(csganimate);
+
+        rendercsg();
+        stats.update();
+
+    }
+
+    function rendercsg() {
+
+        raycaster.setFromCamera(mouse,camera);
+        var intersects = raycaster.intersectObjects( meshs );
+
+        if ( intersects.length > 0 ) {
+            if ( INTERSECTED != intersects[ 0 ].object ) {
+                if ( INTERSECTED ) INTERSECTED.material.emissive.setHex( INTERSECTED.currentHex );
+                INTERSECTED = intersects[ 0 ].object;
+                INTERSECTED.currentHex=currentHex;
+                INTERSECTED.material.emissive.setHex( 0xff0000 );
+            }
+        } else {
+            if ( INTERSECTED ) INTERSECTED.material.emissive.setHex( INTERSECTED.currentHex );
+            INTERSECTED = null;
+        }
+
+        if(selection.length>0){
+            for(var i=0;i<selection.length;i++)
+            {
+                var select=selection[i];
+                select.material.emissive.setHex(0xdd0000);
+            }
+        }
+        renderer.render( scene, camera );
+
+    }
+
+    function onDocumentMouseMove(event) {
+        event.preventDefault();
+        mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+        mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+
+    }
+
+    function onWindowResize() {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize( window.innerWidth, window.innerHeight );
+    }
+
+    function onDocumentClick(event) {
+        event.preventDefault();
+        if(INTERSECTED)
+        {
+            var find=selectionfind(INTERSECTED);
+            if(find<0)
+            {
+                selection.push(INTERSECTED);
+                return 0;
+            }
+            selection[find].material.emissive.setHex(selection[find].currentHex);
+            selection.splice(find,1);
+        }
+
+    }
+
+    function selectionfind(selectobject) {
+        if(selection.length>0)
+        {
+            for(var i=0;i<selection.length;i++)
+            {
+                if(selectobject==selection[i])
+                        return i;
+            }
+        }
+        return -1;
+    }
+
+    function meshfind(selectobject) {
+        if(meshs.length>0)
+        {
+            for(var i=0;i<meshs.length;i++)
+            {
+                if(selectobject==meshs[i])
+                        return i;
+            }
+        }
+        return -1;
+    }
+    
+
+
+</script>
+</body>
+</html>
