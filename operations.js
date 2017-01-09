@@ -167,6 +167,10 @@ function GoBack() {
         meshs.push(mesh2);
         scene.add(mesh2);
     }
+    for(var i=selection.length-1;i>-1;i--){
+        selection[i].material.emissive.setHex(selection[i].currentHex);
+        selection.pop();
+    }
 
 }
 

@@ -180,11 +180,12 @@ function ssphere_z(){
 
 //post-test 4 primitivies
 
-function big_cylinder() {
+function big_cylinder(){
     if(cyx)
         return -1;
     var material=new THREE.MeshLambertMaterial({color: 0xa9ff, shading: THREE.SmoothShading });
     var cy_xMesh= new THREE.Mesh(new THREE.CylinderGeometry(0.4,0.4,2.2,32),material);
+    cy_xMesh.rotation.z=Math.PI/2;
     var cy_xCSG=new ThreeBSP(cy_xMesh);
     csgs.push(cy_xCSG);
     addtoObjs(cy_xCSG);
@@ -233,4 +234,43 @@ function sphere_x() {
     meshs.push(mesh);
     scene.add(mesh);
     cyz=true;
+}
+
+function sphere_y() {
+    if(exsphere)
+        return -1;
+    var material=new THREE.MeshLambertMaterial({color: 0xa9ff, shading: THREE.SmoothShading });
+    var sphereMesh = new THREE.Mesh( new THREE.SphereGeometry( 1.2, 32, 16),material);
+    sphereMesh.translateY(-0.8);
+    sphereMesh.translateX(-0.8);
+    var sphereCSG=new ThreeBSP(sphereMesh);
+    csgs.push(sphereCSG);
+    addtoObjs(sphereCSG);
+    var obj=csgobjs[csgobjs.length-1];
+    obj.name="exsphere";
+    var last=csgs.length-1;
+    mesh=csgs[last].toMesh(new THREE.MeshLambertMaterial({color: 0xa9ff,shading:THREE.SmoothShading}));
+    currentHex=mesh.material.emissive.getHex();
+    meshs.push(mesh);
+    scene.add(mesh);
+    exsphere=true;
+}
+
+function cuboid() {
+    if(excube)
+        return -1;
+    var material=new THREE.MeshLambertMaterial({color: 0xa9ff, shading: THREE.SmoothShading });
+    var cubeMesh	= new THREE.Mesh( new THREE.CubeGeometry( 1.6, 1.6, 1.6 ),material);
+    cubeMesh.position.x=0;
+    var cubeCSG= new ThreeBSP(cubeMesh);
+    csgs.push(cubeCSG);
+    addtoObjs(cubeCSG);
+    var obj=csgobjs[csgobjs.length-1];
+    obj.name="excube";
+    var last=csgs.length-1;
+    mesh=csgs[last].toMesh(new THREE.MeshLambertMaterial({color: 0xa9ff,shading:THREE.SmoothShading}));
+    currentHex=mesh.material.emissive.getHex();
+    meshs.push(mesh);
+    scene.add(mesh);
+    excube=true;
 }
