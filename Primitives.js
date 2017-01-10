@@ -18,6 +18,7 @@ function cylinder_x() {
     meshs.push(mesh);
     scene.add(mesh);
     cyx=true;
+    steplog=steplog+" cyx, ";
 }
 
 function cylinder_y() {
@@ -37,6 +38,7 @@ function cylinder_y() {
     meshs.push(mesh);
     scene.add(mesh);
     cyy=true;
+    steplog=steplog+" cyy, ";
 }
 
 function cylinder_z() {
@@ -56,6 +58,7 @@ function cylinder_z() {
     meshs.push(mesh);
     scene.add(mesh);
     cyz=true;
+    steplog=steplog+" cyz, ";
 }
 
 function cube() {
@@ -75,6 +78,7 @@ function cube() {
     meshs.push(mesh);
     scene.add(mesh);
     excube=true;
+    steplog=steplog+" excube, ";
 }
 
 function sphere() {
@@ -93,6 +97,7 @@ function sphere() {
     meshs.push(mesh);
     scene.add(mesh);
     exsphere=true;
+    steplog=steplog+" exsphere, ";
 
 }
 
@@ -114,6 +119,7 @@ function big_sphere() {
     meshs.push(mesh);
     scene.add(mesh);
     exsphere=true;
+    steplog=steplog+" exsphere, ";
 
 }
 
@@ -136,6 +142,7 @@ function ssphere_x(){
     meshs.push(mesh);
     scene.add(mesh);
     cyx=true;
+    steplog=steplog+" cyx, ";
 }
 
 function ssphere_y(){
@@ -155,6 +162,7 @@ function ssphere_y(){
     meshs.push(mesh);
     scene.add(mesh);
     cyy=true;
+    steplog=steplog+" cyy, ";
 }
 
 function ssphere_z(){
@@ -176,6 +184,7 @@ function ssphere_z(){
     meshs.push(mesh);
     scene.add(mesh);
     cyz=true;
+    steplog=steplog+" cyz, ";
 }
 
 //post-test 4 primitivies
@@ -199,6 +208,7 @@ function big_cylinder(){
     meshs.push(mesh);
     scene.add(mesh);
     cyx=true;
+    steplog=steplog+" cyx, ";
 }
 
 function small_cylinder() {
@@ -222,6 +232,7 @@ function small_cylinder() {
     meshs.push(mesh);
     scene.add(mesh);
     cyy=true;
+    steplog=steplog+" cyy, ";
 }
 
 function sphere_x() {
@@ -240,6 +251,7 @@ function sphere_x() {
     meshs.push(mesh);
     scene.add(mesh);
     cyz=true;
+    steplog=steplog+" cyz, ";
 }
 
 function sphere_y() {
@@ -260,6 +272,7 @@ function sphere_y() {
     meshs.push(mesh);
     scene.add(mesh);
     exsphere=true;
+    steplog=steplog+" exsphere, ";
 }
 
 function cuboid() {
@@ -286,4 +299,5 @@ function cuboid() {
     meshs.push(mesh);
     scene.add(mesh);
     excube=true;
+    steplog=steplog+" excube, ";
 }

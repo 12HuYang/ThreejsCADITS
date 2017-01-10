@@ -51,6 +51,7 @@ function subtract() {
     meshs.push(mesh);
     scene.add(meshs[meshs.length-1]);
     selection=[];
+    steplog=steplog+" "+obj.basename1+" subtract, "+obj.baseobj2+" ";
 }
 
 function union() {
@@ -89,6 +90,7 @@ function union() {
     meshs.push(mesh);
     scene.add(meshs[meshs.length-1]);
     selection=[];
+    steplog=steplog+" "+obj.basename1+" union, "+obj.baseobj2+" ";
 }
 
 function intersect() {
@@ -127,6 +129,7 @@ function intersect() {
     meshs.push(mesh);
     scene.add(meshs[meshs.length-1]);
     selection=[];
+    steplog=steplog+" "+obj.basename1+" intersect, "+obj.baseobj2+" ";
 }
 
 function Restart() {
@@ -153,6 +156,8 @@ function Restart() {
         for(i=0;i<csgobjs.length;i++) csgobjs.pop();
         for(i=0;i<selection.length;i++) selection.pop();
     }
+
+    steplog=steplog+" Restart, ";
 }
 
 function traverse_csgobjs(csgobj) {
@@ -205,6 +210,7 @@ function GoBack() {
         selection[i].material.emissive.setHex(selection[i].currentHex);
         selection.pop();
     }
+    steplog=steplog+" GoBack, ";
 
 }
 
