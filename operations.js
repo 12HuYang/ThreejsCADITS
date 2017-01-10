@@ -24,7 +24,7 @@ function subtract() {
     var first=meshfind(selection[0]);
     var second=meshfind(selection[1]);
     var newcsg=csgs[first].subtract(csgs[second]);
-    addtoObjs(newcsg,csgobjs[first],csgobjs[second]);
+    addtoObjs(newcsg,csgs[first],csgs[second]);
     var obj=csgobjs[csgobjs.length-1];
     obj.basename1=csgobjs[first].name;
     obj.basename2=csgobjs[second].name;
@@ -38,8 +38,8 @@ function subtract() {
     }
     csgs.splice(small,1);
     csgs.splice(big-1,1);
-    csgobjs.splice(small,1);
-    csgobjs.splice(big-1,1);
+    //csgobjs.splice(small,1);
+    //csgobjs.splice(big-1,1);
     csgs.push(newcsg);
     scene.remove(meshs[first]);
     scene.remove(meshs[second]);
@@ -60,7 +60,7 @@ function union() {
     var first=meshfind(selection[0]);
     var second=meshfind(selection[1]);
     var newcsg=csgs[first].union(csgs[second]);
-    addtoObjs(newcsg,csgobjs[first],csgobjs[second]);
+    addtoObjs(newcsg,csgs[first],csgs[second]);
     var obj=csgobjs[csgobjs.length-1];
     obj.basename1=csgobjs[first].name;
     obj.basename2=csgobjs[second].name;
@@ -75,8 +75,8 @@ function union() {
     csgs.splice(small,1);
     csgs.splice(big-1,1);
     csgs.push(newcsg);
-    csgobjs.splice(small,1);
-    csgobjs.splice(big-1,1);
+    //csgobjs.splice(small,1);
+    //csgobjs.splice(big-1,1);
     scene.remove(meshs[first]);
     scene.remove(meshs[second]);
     var mesh=csgs[csgs.length-1].toMesh(new THREE.MeshLambertMaterial({color: 0xa9ff,shading:THREE.SmoothShading}));
@@ -96,7 +96,7 @@ function intersect() {
     var first=meshfind(selection[0]);
     var second=meshfind(selection[1]);
     var newcsg=csgs[first].intersect(csgs[second]);
-    addtoObjs(newcsg,csgobjs[first],csgobjs[second]);
+    addtoObjs(newcsg,csgs[first],csgs[second]);
     var obj=csgobjs[csgobjs.length-1];
     obj.basename1=csgobjs[first].name;
     obj.basename2=csgobjs[second].name;
@@ -110,8 +110,8 @@ function intersect() {
     }
     csgs.splice(small,1);
     csgs.splice(big-1,1);
-    csgobjs.splice(small,1);
-    csgobjs.splice(big-1,1);
+    //csgobjs.splice(small,1);
+    //csgobjs.splice(big-1,1);
     csgs.push(newcsg);
     scene.remove(meshs[first]);
     scene.remove(meshs[second]);
@@ -136,41 +136,59 @@ function Restart() {
         cyz=false;
         excube=false;
         exsphere=false;
-        meshs=[];
-        csgs=[];
-        selection=[];
+        for(i=0;i<meshs.length;i++)
+        {
+            meshs.pop();
+            csgs.pop();
+        }
+        for(i=0;i<csgobjs.length;i++) csgobjs.pop();
+        for(i=0;i<selection.length;i++) selection.pop();
     }
 }
 
+function traverse_csgobjs(csgobj) {
+    for(var i=0;i<csgobjs.length;i++)
+    {
+        var obj=csgobjs[i];
+        if(obj.csgobj==csgobj)
+            return i;
+    }
+    return -1;
+}
+
+function csgsfind(csgobj) {
+    if(csgs.length>0)
+    {
+        for(var i=0;i<csgs.length;i++)
+        {
+            if(csgs[i]==csgobj)
+                return i;
+        }
+    }
+    return -1;
+}
+
 function GoBack() {
-    var mesh=meshs.pop();
-    scene.remove(mesh);
-    csgs.pop();
     var csgobj=csgobjs.pop();
     if(!csgobj) return -1;
+    var csgindex=csgsfind(csgobj.csgobj);
+    var mesh=meshs[csgindex];
+    meshs.splice(csgindex,1);
+    scene.remove(mesh);
+    csgs.splice(csgindex,1);
     InitValidation(csgobj);
     if(csgobj.baseobj1 && csgobj.baseobj2)
     {
-        var bobj1=null;
-        var bobj2=null;
-        if(csgobj.baseobj1.baseobj1)bobj1=csgobj.baseobj1.baseobj1;
-        if(csgobj.baseobj1.baseobj2)bobj2=csgobj.baseobj1.baseobj2;
-        addtoObjs(csgobj.baseobj1,bobj1,bobj2);
-        var obj1=csgobjs[csgobjs.length-1];
-        obj1.name=csgobj.basename1;
-        bobj1=null;
-        bobj2=null;
-        if(csgobj.baseobj2.baseobj1) bobj1=csgobj.baseobj2.baseobj1;
-        if(csgobj.baseobj2.baseobj2) bobj2=csgobj.baseobj2.baseobj2;
-        addtoObjs(csgobj.baseobj2,bobj1,bobj2);
-        var obj2=csgobjs[csgobjs.length-1];
-        obj2.name=csgobj.basename2;
-        csgs.push(csgobj.baseobj1.csgobj);
-        csgs.push(csgobj.baseobj2.csgobj);
-        var mesh1=csgobj.baseobj1.csgobj.toMesh(new THREE.MeshLambertMaterial({color: 0xa9ff,shading:THREE.SmoothShading}));
+        var b1=traverse_csgobjs(csgobj.baseobj1);
+        var b2=traverse_csgobjs(csgobj.baseobj2);
+        var bobj1=csgobjs[b1].csgobj;
+        var bobj2=csgobjs[b2].csgobj;
+        csgs.push(bobj1);
+        csgs.push(bobj2);
+        var mesh1=bobj1.toMesh(new THREE.MeshLambertMaterial({color: 0xa9ff,shading:THREE.SmoothShading}));
         meshs.push(mesh1);
         scene.add(mesh1);
-        var mesh2=csgobj.baseobj2.csgobj.toMesh(new THREE.MeshLambertMaterial({color: 0xa9ff,shading:THREE.SmoothShading}));
+        var mesh2=bobj2.toMesh(new THREE.MeshLambertMaterial({color: 0xa9ff,shading:THREE.SmoothShading}));
         meshs.push(mesh2);
         scene.add(mesh2);
     }
@@ -187,12 +205,4 @@ function InitValidation(csgobj) {
     if(csgobj.name=="cyz") cyz=false;
     if(csgobj.name=="cyy") cyy=false;
     if(csgobj.name=="cyx") cyx=false;
-    if(csgobj.csgobj.name)
-    {
-        if(csgobj.csgobj.name=="exsphere") exsphere=false;
-        if(csgobj.csgobj.name=="excube") excube=false;
-        if(csgobj.csgobj.name=="cyz") cyz=false;
-        if(csgobj.csgobj.name=="cyy") cyy=false;
-        if(csgobj.csgobj.name=="cyx") cyx=false;
-    }
 }
