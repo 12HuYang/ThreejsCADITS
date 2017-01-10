@@ -184,8 +184,10 @@ function big_cylinder(){
     if(cyx)
         return -1;
     var material=new THREE.MeshLambertMaterial({color: 0xa9ff, shading: THREE.SmoothShading });
-    var cy_xMesh= new THREE.Mesh(new THREE.CylinderGeometry(0.4,0.4,2.2,32),material);
-    cy_xMesh.rotation.z=Math.PI/2;
+    var cy_xMesh= new THREE.Mesh(new THREE.CylinderGeometry(0.4,0.4,1.8,32),material);
+    cy_xMesh.rotation.z=Math.PI/6;
+    cy_xMesh.translateZ(0.2);
+    cy_xMesh.translateX(-0.1);
     var cy_xCSG=new ThreeBSP(cy_xMesh);
     csgs.push(cy_xCSG);
     addtoObjs(cy_xCSG);
@@ -204,7 +206,11 @@ function small_cylinder() {
         return -1;
     var material=new THREE.MeshLambertMaterial({color: 0xa9ff, shading: THREE.SmoothShading });
     var cy_xMesh= new THREE.Mesh(new THREE.CylinderGeometry(0.1,0.1,0.1,32),material);
-    cy_xMesh.rotation.x=Math.PI/2;
+    cy_xMesh.rotation.x=Math.PI/1.9;
+    cy_xMesh.rotation.z=Math.PI/20;
+    cy_xMesh.translateZ(-0.1);
+    cy_xMesh.translateX(-0.4);
+    cy_xMesh.translateY(0.2);
     var cy_xCSG=new ThreeBSP(cy_xMesh);
     csgs.push(cy_xCSG);
     addtoObjs(cy_xCSG);
@@ -222,7 +228,7 @@ function sphere_x() {
     if(cyz)
         return -1;
     var material=new THREE.MeshLambertMaterial({color: 0xa9ff, shading: THREE.SmoothShading });
-    var sphereMesh = new THREE.Mesh( new THREE.SphereGeometry( 1, 32, 16),material);
+    var sphereMesh = new THREE.Mesh( new THREE.SphereGeometry( 1.2, 32, 16),material);
     var sphereCSG=new ThreeBSP(sphereMesh);
     csgs.push(sphereCSG);
     addtoObjs(sphereCSG);
@@ -240,7 +246,7 @@ function sphere_y() {
     if(exsphere)
         return -1;
     var material=new THREE.MeshLambertMaterial({color: 0xa9ff, shading: THREE.SmoothShading });
-    var sphereMesh = new THREE.Mesh( new THREE.SphereGeometry( 1.2, 32, 16),material);
+    var sphereMesh = new THREE.Mesh( new THREE.SphereGeometry( 1, 32, 16),material);
     sphereMesh.translateY(-0.8);
     sphereMesh.translateX(-0.8);
     var sphereCSG=new ThreeBSP(sphereMesh);
@@ -260,8 +266,15 @@ function cuboid() {
     if(excube)
         return -1;
     var material=new THREE.MeshLambertMaterial({color: 0xa9ff, shading: THREE.SmoothShading });
-    var cubeMesh	= new THREE.Mesh( new THREE.CubeGeometry( 1.6, 1.6, 1.6 ),material);
-    cubeMesh.position.x=0;
+    var cubeMesh	= new THREE.Mesh( new THREE.CubeGeometry( 0.3, 0.1, 0.13 ),material);
+    //cubeMesh.position.x=0;
+
+    cubeMesh.rotation.x=Math.PI/1.9;
+    cubeMesh.rotation.z=Math.PI/20;
+    cubeMesh.translateZ(-0.1);
+    cubeMesh.translateX(-0.4);
+    cubeMesh.translateY(0.2);
+
     var cubeCSG= new ThreeBSP(cubeMesh);
     csgs.push(cubeCSG);
     addtoObjs(cubeCSG);
