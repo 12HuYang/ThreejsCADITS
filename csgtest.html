@@ -48,7 +48,8 @@
     </style>
 </head>
 <body>
-<div id="container"></div>
+<div id="container">
+</div>
 <div id="info">
     <!--a href="http://webglreport.com/">WebGL support test</a> Test your browser if it supports WebGL 1 or not <br-->
     <!--a href="/blog/2011/12/10/constructive-solid-geometry-with-csg-js/" target="_blank">LearningThree.js</a> - Contructive Solid Geometry-->
@@ -86,6 +87,8 @@
     <a href="#Restart" onclick="Restart();">Restart</a>
     -
     <a href="#GoBack" onclick="GoBack();">GoBack</a>
+    -
+    <a href="#Submit" onclick="">Submit</a>
     <br>
 </div>
 
@@ -106,6 +109,47 @@
     resultcsgs=[];
     csginit();
     csganimate();
+    unioncount=0;
+    commoncount=0;
+    subtractcoutnt=0;
+    stages=["pretest","train_1","train_2","train_3","post-test_1","post-test_2","post-test_3","post-test_4"];
+    steplog=[];
+    userID=[];
+    userG=[];
+
+    userMID=function () {
+        // This function is anonymous, is executed immediately and
+        // the return value is assigned to QueryString!
+        if(userID.length>0) return -1;
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        var mid;
+        for (i in vars) {
+            var pair = vars[i].split("=");
+            if(pair[0]=="MID"){
+                mid=pair[1];
+            }
+        }
+        userID.push(mid);
+        //return mid;
+    }();
+
+    userGROUP=function () {
+        // This function is anonymous, is executed immediately and
+        // the return value is assigned to QueryString!
+        if(userG.length>0) return -1;
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        var mid;
+        for (i in vars) {
+            var pair = vars[i].split("=");
+            if(pair[0]=="GROUP"){
+                mid=pair[1];
+            }
+        }
+        userG.push(mid);
+        //return mid;
+    }();
 
     function csginit() {
         scene=new THREE.Scene();

@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8512abad-3f25-4644-8aa2-a7985322021c" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/homepage.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csgtest.html" afterPath="$PROJECT_DIR$/csgtest.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/post-test03.html" afterPath="$PROJECT_DIR$/post-test03.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/post-test04.html" afterPath="$PROJECT_DIR$/post-test04.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/operations.js" afterPath="$PROJECT_DIR$/operations.js" />
     </list>
     <ignored path="three-d-js.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,10 +43,10 @@
       <file leaf-file-name="csgtest.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/csgtest.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="49" selection-start-line="20" selection-start-column="49" selection-end-line="20" selection-end-column="49" />
+            <state relative-caret-position="648">
+              <caret line="141" column="36" selection-start-line="141" selection-start-column="36" selection-end-line="141" selection-end-column="36" />
               <folding>
-                <element signature="e#2039#2362#0" expanded="false" />
+                <element signature="e#2040#2363#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -67,8 +67,8 @@
       <file leaf-file-name="post-test04.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/post-test04.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="26" selection-end-column="41" />
+            <state relative-caret-position="-867">
+              <caret line="30" column="28" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
               <folding>
                 <element signature="e#2039#2362#0" expanded="false" />
               </folding>
@@ -76,21 +76,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OrbitControls.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vendor/OrbitControls.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="861">
-              <caret line="585" column="81" selection-start-line="585" selection-start-column="81" selection-end-line="585" selection-end-column="81" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Primitives.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Primitives.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="543">
-              <caret line="274" column="30" selection-start-line="274" selection-start-column="30" selection-end-line="274" selection-end-column="30" />
+            <state relative-caret-position="645">
+              <caret line="281" column="22" selection-start-line="281" selection-start-column="22" selection-end-line="281" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -99,8 +89,8 @@
       <file leaf-file-name="operations.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/operations.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="764">
-              <caret line="192" column="25" selection-start-line="192" selection-start-column="25" selection-end-line="192" selection-end-column="25" />
+            <state relative-caret-position="356">
+              <caret line="35" column="21" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -111,16 +101,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1122">
               <caret line="66" column="35" selection-start-line="66" selection-start-column="35" selection-end-line="66" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="examples.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ThreeCSG-develop/examples.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="115" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="115" />
               <folding />
             </state>
           </provider>
@@ -141,8 +121,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -169,11 +149,12 @@
         <option value="$PROJECT_DIR$/ThreeCSG-develop/examples.js" />
         <option value="$PROJECT_DIR$/vendor/ThreeCSG_02.js" />
         <option value="$PROJECT_DIR$/csgindex.html" />
-        <option value="$PROJECT_DIR$/operations.js" />
         <option value="$PROJECT_DIR$/Primitives.js" />
         <option value="$PROJECT_DIR$/vendor/OrbitControls.js" />
         <option value="$PROJECT_DIR$/post-test04.html" />
         <option value="$PROJECT_DIR$/post-test03.html" />
+        <option value="$PROJECT_DIR$/homepage.html" />
+        <option value="$PROJECT_DIR$/operations.js" />
         <option value="$PROJECT_DIR$/csgtest.html" />
       </list>
     </option>
@@ -340,7 +321,7 @@
       <workItem from="1482789739976" duration="21861000" />
       <workItem from="1483036441902" duration="8558000" />
       <workItem from="1483550753049" duration="2977000" />
-      <workItem from="1483746402249" duration="26290000" />
+      <workItem from="1483746402249" duration="30751000" />
     </task>
     <task id="LOCAL-00001" summary="add goback, addtocsgobj">
       <created>1483043418918</created>
@@ -412,11 +393,18 @@
       <option name="project" value="LOCAL" />
       <updated>1484077327871</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="change script links back&#10;">
+      <created>1484077778886</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1484077778886</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115255000" />
+    <option name="totallyTimeSpent" value="119716000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
@@ -481,21 +469,14 @@
     <MESSAGE value="modify goback function&#10;change usage of csgobjs&#10;" />
     <MESSAGE value="modified post-test 04" />
     <MESSAGE value="change script links&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="change script links&#10;" />
+    <MESSAGE value="change script links back&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="change script links back&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/three.js/ThreeBSP.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9367">
-          <caret line="551" column="5" selection-start-line="551" selection-start-column="5" selection-end-line="551" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/csgindex.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3315">
@@ -525,7 +506,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#2039#2362#0" expanded="false" />
+            <element signature="e#2040#2363#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -836,37 +817,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/operations.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="764">
-          <caret line="192" column="25" selection-start-line="192" selection-start-column="25" selection-end-line="192" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Primitives.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="543">
-          <caret line="274" column="30" selection-start-line="274" selection-start-column="30" selection-end-line="274" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/OrbitControls.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="861">
           <caret line="585" column="81" selection-start-line="585" selection-start-column="81" selection-end-line="585" selection-end-column="81" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/post-test04.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="26" selection-end-column="41" />
-          <folding>
-            <element signature="e#2039#2362#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -880,12 +835,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/csgtest.html">
+    <entry file="file://$PROJECT_DIR$/homepage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="49" selection-start-line="20" selection-start-column="49" selection-end-line="20" selection-end-column="49" />
+        <state relative-caret-position="119">
+          <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
+          <folding>
+            <element signature="n#style#0;n#iframe#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/operations.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="35" column="21" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Primitives.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="281" column="22" selection-start-line="281" selection-start-column="22" selection-end-line="281" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/post-test04.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-867">
+          <caret line="30" column="28" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
           <folding>
             <element signature="e#2039#2362#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/csgtest.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="141" column="36" selection-start-line="141" selection-start-column="36" selection-end-line="141" selection-end-column="36" />
+          <folding>
+            <element signature="e#2040#2363#0" expanded="false" />
           </folding>
         </state>
       </provider>

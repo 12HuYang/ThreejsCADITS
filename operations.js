@@ -28,6 +28,8 @@ function subtract() {
     var obj=csgobjs[csgobjs.length-1];
     obj.basename1=csgobjs[first].name;
     obj.basename2=csgobjs[second].name;
+    obj.name="subtract";
+    obj.opcount=subtractcoutnt++;
     var big,small;
     if(first>second){
         big=first;
@@ -64,6 +66,8 @@ function union() {
     var obj=csgobjs[csgobjs.length-1];
     obj.basename1=csgobjs[first].name;
     obj.basename2=csgobjs[second].name;
+    obj.name="union";
+    obj.opcount=unioncount++;
     var big,small;
     if(first>second){
         big=first;
@@ -100,6 +104,8 @@ function intersect() {
     var obj=csgobjs[csgobjs.length-1];
     obj.basename1=csgobjs[first].name;
     obj.basename2=csgobjs[second].name;
+    obj.name="common";
+    obj.opcount=commoncount++;
     var big,small;
     if(first>second){
         big=first;
@@ -136,6 +142,9 @@ function Restart() {
         cyz=false;
         excube=false;
         exsphere=false;
+        unioncount=0;
+        commoncount=0;
+        subtractcoutnt=0;
         for(i=0;i<meshs.length;i++)
         {
             meshs.pop();
