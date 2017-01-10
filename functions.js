@@ -83,7 +83,8 @@ function getstageindex() {
 function submit() {
     var stageexp=stages[stageI[0]];
     var stageindex=Number(stageI[0])+1;
-    steplog=steplog+stageexp;
+    steplog=steplog+" , "+stageexp+"_end;";
+    attack_a("Logs/steplog.php","&MID="+userID[0],"&log="+steplog);
     switch(Number(stageI[0])){
         case 0:
             //direct to training-1
@@ -113,8 +114,10 @@ function submit() {
             //direct to post-test_4
             window.location.replace('post-test04.html?MID='+userID[0]+'&GROUP='+userG[0]+'&STAGE='+stageindex);
             break;
+        case 7:
+            window.location.replace('Logs/result.php');
+            break;
 
     }
-
 
 }

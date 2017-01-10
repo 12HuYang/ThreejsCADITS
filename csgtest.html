@@ -115,14 +115,17 @@
     commoncount=0;
     subtractcoutnt=0;
     stages=["pretest","train_1","train_2","train_3","post-test_1","post-test_2","post-test_3","post-test_4"];
-    steplog=[];
+
     userID=[];
     userG=[];
     stageI=[];
+    steplog=[];
 
     getstageindex();
     getuserGROUP();
     getuserID();
+
+
 
     function csginit() {
         scene=new THREE.Scene();
