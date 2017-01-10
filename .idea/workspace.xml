@@ -4,11 +4,9 @@
     <bookmark url="file://$PROJECT_DIR$/operations.js" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8512abad-3f25-4644-8aa2-a7985322021c" name="Default" comment="add post-test 4 primitives&#10;">
+    <list default="true" id="8512abad-3f25-4644-8aa2-a7985322021c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Primitives.js" afterPath="$PROJECT_DIR$/Primitives.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/operations.js" afterPath="$PROJECT_DIR$/operations.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/post-test04.html" afterPath="$PROJECT_DIR$/post-test04.html" />
     </list>
     <ignored path="three-d-js.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,8 +41,8 @@
       <file leaf-file-name="csgtest.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/csgtest.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="40" column="31" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
+            <state relative-caret-position="461">
+              <caret line="239" column="5" selection-start-line="239" selection-start-column="5" selection-end-line="239" selection-end-column="5" />
               <folding>
                 <element signature="e#2039#2362#0" expanded="false" />
               </folding>
@@ -55,7 +53,7 @@
       <file leaf-file-name="post-test03.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/post-test03.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="512">
+            <state relative-caret-position="104">
               <caret line="218" column="22" selection-start-line="218" selection-start-column="22" selection-end-line="218" selection-end-column="22" />
               <folding>
                 <element signature="e#2039#2362#0" expanded="false" />
@@ -79,8 +77,8 @@
       <file leaf-file-name="Primitives.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Primitives.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="192" column="19" selection-start-line="192" selection-start-column="19" selection-end-line="192" selection-end-column="19" />
+            <state relative-caret-position="1173">
+              <caret line="69" column="27" selection-start-line="69" selection-start-column="20" selection-end-line="69" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -89,8 +87,8 @@
       <file leaf-file-name="operations.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/operations.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2618">
-              <caret line="154" column="35" selection-start-line="154" selection-start-column="35" selection-end-line="154" selection-end-column="35" />
+            <state relative-caret-position="238">
+              <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -172,8 +170,8 @@
         <option value="$PROJECT_DIR$/csgtest.html" />
         <option value="$PROJECT_DIR$/post-test03.html" />
         <option value="$PROJECT_DIR$/post-test04.html" />
-        <option value="$PROJECT_DIR$/operations.js" />
         <option value="$PROJECT_DIR$/Primitives.js" />
+        <option value="$PROJECT_DIR$/operations.js" />
       </list>
     </option>
   </component>
@@ -325,7 +323,7 @@
       <workItem from="1482789739976" duration="21861000" />
       <workItem from="1483036441902" duration="8558000" />
       <workItem from="1483550753049" duration="2977000" />
-      <workItem from="1483746402249" duration="9168000" />
+      <workItem from="1483746402249" duration="15222000" />
     </task>
     <task id="LOCAL-00001" summary="add goback, addtocsgobj">
       <created>1483043418918</created>
@@ -362,11 +360,18 @@
       <option name="project" value="LOCAL" />
       <updated>1483748899698</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add post-test 4 primitives&#10;">
+      <created>1484002314173</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1484002314173</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98133000" />
+    <option name="totallyTimeSpent" value="104187000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
@@ -782,10 +787,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Primitives.js">
+    <entry file="file://$PROJECT_DIR$/firsttest.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="192" column="19" selection-start-line="192" selection-start-column="19" selection-end-line="192" selection-end-column="19" />
+        <state relative-caret-position="612">
+          <caret line="36" column="9" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -802,7 +807,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/post-test03.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
+        <state relative-caret-position="104">
           <caret line="218" column="22" selection-start-line="218" selection-start-column="22" selection-end-line="218" selection-end-column="22" />
           <folding>
             <element signature="e#2039#2362#0" expanded="false" />
@@ -810,18 +815,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/firsttest.html">
+    <entry file="file://$PROJECT_DIR$/Primitives.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="36" column="9" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
+        <state relative-caret-position="1173">
+          <caret line="69" column="27" selection-start-line="69" selection-start-column="20" selection-end-line="69" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/csgtest.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="40" column="31" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
+        <state relative-caret-position="461">
+          <caret line="239" column="5" selection-start-line="239" selection-start-column="5" selection-end-line="239" selection-end-column="5" />
           <folding>
             <element signature="e#2039#2362#0" expanded="false" />
           </folding>
@@ -830,8 +835,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/operations.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2618">
-          <caret line="154" column="35" selection-start-line="154" selection-start-column="35" selection-end-line="154" selection-end-column="35" />
+        <state relative-caret-position="238">
+          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
           <folding />
         </state>
       </provider>
