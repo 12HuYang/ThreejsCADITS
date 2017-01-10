@@ -25,6 +25,8 @@
 
     <script src="operations.js"></script>
     <script src="Primitives.js"></script>
+    <script src="functions.js"></script>
+
     <style>
         body {
             background: #408040;
@@ -88,7 +90,7 @@
     -
     <a href="#GoBack" onclick="GoBack();">GoBack</a>
     -
-    <a href="#Submit" onclick="">Submit</a>
+    <a href="#Submit" onclick="submit()">Submit</a>
     <br>
 </div>
 
@@ -116,40 +118,11 @@
     steplog=[];
     userID=[];
     userG=[];
+    stageI=[];
 
-    userMID=function () {
-        // This function is anonymous, is executed immediately and
-        // the return value is assigned to QueryString!
-        if(userID.length>0) return -1;
-        var query = window.location.search.substring(1);
-        var vars = query.split("&");
-        var mid;
-        for (i in vars) {
-            var pair = vars[i].split("=");
-            if(pair[0]=="MID"){
-                mid=pair[1];
-            }
-        }
-        userID.push(mid);
-        //return mid;
-    }();
-
-    userGROUP=function () {
-        // This function is anonymous, is executed immediately and
-        // the return value is assigned to QueryString!
-        if(userG.length>0) return -1;
-        var query = window.location.search.substring(1);
-        var vars = query.split("&");
-        var mid;
-        for (i in vars) {
-            var pair = vars[i].split("=");
-            if(pair[0]=="GROUP"){
-                mid=pair[1];
-            }
-        }
-        userG.push(mid);
-        //return mid;
-    }();
+    getstageindex();
+    getuserGROUP();
+    getuserID();
 
     function csginit() {
         scene=new THREE.Scene();
