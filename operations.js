@@ -51,7 +51,7 @@ function subtract() {
     meshs.push(mesh);
     scene.add(meshs[meshs.length-1]);
     selection=[];
-    steplog=steplog+" "+obj.basename1+" subtract, "+obj.baseobj2+" ";
+    steplog=steplog+" ["+obj.basename1+", subtract ,"+obj.basename2+"], ";
 }
 
 function union() {
@@ -90,7 +90,7 @@ function union() {
     meshs.push(mesh);
     scene.add(meshs[meshs.length-1]);
     selection=[];
-    steplog=steplog+" "+obj.basename1+" union, "+obj.baseobj2+" ";
+    steplog=steplog+" ["+obj.basename1+", union ,"+obj.basename2+"], ";
 }
 
 function intersect() {
@@ -129,7 +129,7 @@ function intersect() {
     meshs.push(mesh);
     scene.add(meshs[meshs.length-1]);
     selection=[];
-    steplog=steplog+" "+obj.basename1+" intersect, "+obj.baseobj2+" ";
+    steplog=steplog+" ["+obj.basename1+", intersect ,"+obj.basename2+"], ";
 }
 
 function Restart() {
