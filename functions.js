@@ -87,34 +87,39 @@ function submit() {
     attack_a("Logs/steplog.php","&MID="+userID[0],"&log="+steplog);
     switch(Number(stageI[0])){
         case 0:
-            //direct to training-1
+            //direct to pre-test
             window.location.replace('csgtest.html?MID='+userID[0]+'&GROUP='+userG[0]+'&STAGE='+stageindex);
             break;
         case 1:
-            //direct to training-2
+            //direct to training-1
             window.location.replace('csgtest.html?MID='+userID[0]+'&GROUP='+userG[0]+'&STAGE='+stageindex);
             break;
         case 2:
-            //direct to training-3
+            //direct to training-2
             window.location.replace('csgtest.html?MID='+userID[0]+'&GROUP='+userG[0]+'&STAGE='+stageindex);
             break;
         case 3:
-            //direct to post-test_1
+            //direct to training-3
             window.location.replace('csgtest.html?MID='+userID[0]+'&GROUP='+userG[0]+'&STAGE='+stageindex);
             break;
         case 4:
-            //direct to post-test_2
+            //direct to post-test_1
             window.location.replace('csgtest.html?MID='+userID[0]+'&GROUP='+userG[0]+'&STAGE='+stageindex);
             break;
         case 5:
+            //direct to post-test_2
+            window.location.replace('csgtest.html?MID='+userID[0]+'&GROUP='+userG[0]+'&STAGE='+stageindex);
+            break;
+        case 6:
             //direct to post-test_3
             window.location.replace('post-test03.html?MID='+userID[0]+'&GROUP='+userG[0]+'&STAGE='+stageindex);
             break;
-        case 6:
+        case 7:
             //direct to post-test_4
             window.location.replace('post-test04.html?MID='+userID[0]+'&GROUP='+userG[0]+'&STAGE='+stageindex);
             break;
-        case 7:
+        case 8:
+            //direct to result page
             window.location.replace('Logs/result.php');
             break;
 
