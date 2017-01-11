@@ -50,6 +50,7 @@
     </style>
 </head>
 <body>
+<div id="statu"></div>
 <div id="container">
 </div>
 <div id="info">
@@ -125,7 +126,12 @@
     getuserGROUP();
     getuserID();
 
+    showstatue();
 
+    function showstatue() {
+        var status=document.getElementById("statu");
+        status.innerHTML="current statge is :"+stages[stageI[0]]+"<br>";
+    }
 
     function csginit() {
         scene=new THREE.Scene();

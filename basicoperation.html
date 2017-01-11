@@ -50,10 +50,11 @@
     </style>
 </head>
 <body>
+<div id="statu"></div>
 <div id="container">
 </div>
 <div id="info">
-    Basic Operations:<br>
+    <br>Basic Operations:<br>
     Orbit - left mouse / touch: one finger move <br>
     Zoom - middle mouse, or mousewheel / touch: two finger spread or squish <br>
     Pan - right mouse, or arrow keys / touch: three finter swipe <br><br>
@@ -101,7 +102,14 @@
     getuserGROUP();
     getuserID();
 
-    
+    showstatue();
+
+
+    function showstatue() {
+        var status=document.getElementById("statu");
+        status.innerHTML="current statge is :"+stages[stageI[0]]+"<br>";
+    }
+
     function csginit() {
         scene=new THREE.Scene();
         if(!scene.background)

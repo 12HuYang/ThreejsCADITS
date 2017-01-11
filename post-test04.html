@@ -50,6 +50,7 @@
     </style>
 </head>
 <body>
+<div id="statu"></div>
 <div id="container"></div>
 <div id="info">
     <!--a href="http://webglreport.com/">WebGL support test</a> Test your browser if it supports WebGL 1 or not <br-->
@@ -122,6 +123,13 @@
     getstageindex();
     getuserGROUP();
     getuserID();
+
+    showstatue();
+
+    function showstatue() {
+        var status=document.getElementById("statu");
+        status.innerHTML="current statge is :"+stages[stageI[0]]+"<br>";
+    }
 
     function csginit() {
         scene=new THREE.Scene();
