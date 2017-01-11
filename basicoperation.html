@@ -54,14 +54,20 @@
 </div>
 <div id="info">
     Basic Operations:<br>
-    - Rotate the 3D Geometry object <br>
-    -- Windows OS: press the left button and drag the cursor to rotate the 3D geometry object <br>
-    -- Mac OS: press the panel with one finger and drag the cursor to rotate the 3D geometry object <br>
-    - Translate the 3D Geometry object <br>
-    -- Windows OS: press the right button and drag the cursor to translate the 3D geometry object <br>
-    -- Mac OS; press the panel with two fingers and drag the cursor to translate the 3D geometry object <br>
+    Orbit - left mouse / touch: one finger move <br>
+    Zoom - middle mouse, or mousewheel / touch: two finger spread or squish <br>
+    Pan - right mouse, or arrow keys / touch: three finter swipe <br><br>
+    Basic Shape:
+    -
+    <a href="#Tetrahedron" onclick="TorusKnot();">Tetrahedron</a> -- Click the link to make a Tetrahedron
+    <br><br>
+    Edit:
+    <a href="#Restart" onclick="Restart();">Restart</a>
+    -
+    <a href="#GoBack" onclick="GoBack();">GoBack</a>
+    -
+    <a href="#continue" onclick="submit();">Go to to pre-test</a>
     <br>
-    <a href="#continue" onclick="submit();">Continue to pre-test</a>
 </div>
 
 <script type="text/javascript">
@@ -95,17 +101,6 @@
     getuserGROUP();
     getuserID();
 
-    TorusKnot();
-
-    function TorusKnot() {
-        var material=new THREE.MeshLambertMaterial({color: 0xa9ff, shading: THREE.SmoothShading });
-        //var mesh = new THREE.Mesh(new THREE.TorusKnotGeometry(3,1,100,16),material);
-        var mesh = new THREE.Mesh(new THREE.TetrahedronGeometry());
-        mesh.position.x=0;
-        var meshcsg=new ThreeBSP(mesh);
-        var truemesh= meshcsg.toMesh(new THREE.MeshLambertMaterial({color: 0xa9ff, shading: THREE.SmoothShading }));
-        scene.add(truemesh);
-    }
     
     function csginit() {
         scene=new THREE.Scene();

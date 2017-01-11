@@ -158,6 +158,8 @@ function Restart() {
     }
 
     steplog=steplog+" Restart, ";
+    //window.location.href=this.href;
+    //window.location.reload();
 }
 
 function traverse_csgobjs(csgobj) {

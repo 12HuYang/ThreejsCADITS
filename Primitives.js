@@ -301,3 +301,23 @@ function cuboid() {
     excube=true;
     steplog=steplog+" excube, ";
 }
+
+//basic operation
+function TorusKnot() {
+    if(excube)
+        return -1;
+    var tetramesh = new THREE.Mesh(new THREE.TetrahedronGeometry());
+    tetramesh.position.x=0;
+    var meshcsg=new ThreeBSP(tetramesh);
+    csgs.push(meshcsg);
+    addtoObjs(meshcsg);
+    var obj=csgobjs[csgobjs.length-1];
+    obj.name="excube";
+    var last=csgs.length-1;
+    var truemesh= csgs[last].toMesh(new THREE.MeshLambertMaterial({color: 0xa9ff, shading: THREE.SmoothShading }));
+    currentHex=truemesh.material.emissive.getHex();
+    meshs.push(truemesh);
+    scene.add(truemesh);
+    excube=true;
+    steplog=steplog+" tetrahedron, ";
+}
