@@ -23,6 +23,6 @@ and then release after you have selected the highlighted code.
 At the top of your browser, \"Edit\" right next to \"File\". Click Edit to reveal the drop down menu and select Copy.<br><br>
     Paste the code: At the top of your browser, \"Edit\" right next to \"File\". Click Edit to reveal the drop down menu and select Paste.<br><br></b>";
 
-    echo "<a href='http://casas.wsu.edu'>Know more about SHiB project</a>";
+    //echo "<a href='http://casas.wsu.edu'>Know more about SHiB project</a>";
 
 ?>
