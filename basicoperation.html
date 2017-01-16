@@ -10,8 +10,8 @@
 
     <!--script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r73/three.min.js"></script-->
     <script src="http://mrdoob.github.com/three.js/build/three.min.js"></script>
-    <script src="http://mrdoob.github.com/three.js/examples/js/libs/stats.min.js"></script>
-    <script src="https://dl.dropboxusercontent.com/u/3587259/Code/Threejs/OrbitControls.js"></script>
+    <!--script src="http://mrdoob.github.com/three.js/examples/js/libs/stats.min.js"></script-->
+    <script src="vendor/OrbitControls.js"></script>
 
 
     <!--script src="http://github.com/evanw/csg.js"></script-->
@@ -56,8 +56,7 @@
 <div id="info">
     <br>Basic Operations:<br>
     Orbit - left mouse / touch: one finger move <br>
-    Zoom - middle mouse, or mousewheel / touch: two finger spread or squish <br>
-    Pan - right mouse, or arrow keys / touch: three finter swipe <br><br>
+    Pan - right mouse, or arrow keys / touch: two finger swipe <br><br>
     Basic Shape:
     -
     <a href="#Tetrahedron" onclick="TorusKnot();">Tetrahedron</a> -- Click the link to make a Tetrahedron
@@ -103,6 +102,8 @@
     getuserID();
 
     showstatue();
+
+
 
 
     function showstatue() {
@@ -253,6 +254,8 @@
         }
         return -1;
     }
+
+
 
 
 

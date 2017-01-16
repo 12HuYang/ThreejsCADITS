@@ -42,8 +42,8 @@ THREE.OrbitControls = function ( object, domElement ) {
 
     // This option actually enables dollying in and out; left as "zoom" for
     // backwards compatibility
-    this.noZoom = false;
-    this.zoomSpeed = 1.0;
+    //this.noZoom = false;
+    //this.zoomSpeed = 1.0;
     // Limits to how far you can dolly in and out
     this.minDistance = 0;
     this.maxDistance = Infinity;
@@ -187,7 +187,7 @@ THREE.OrbitControls = function ( object, domElement ) {
 
     };
 
-    this.dollyIn = function ( dollyScale ) {
+    /*this.dollyIn = function ( dollyScale ) {
 
         if ( dollyScale === undefined ) {
 
@@ -209,7 +209,7 @@ THREE.OrbitControls = function ( object, domElement ) {
 
         scale *= dollyScale;
 
-    };
+    };*/
 
     this.update = function () {
 
@@ -277,11 +277,11 @@ THREE.OrbitControls = function ( object, domElement ) {
 
     }
 
-    function getZoomScale() {
+    /*function getZoomScale() {
 
         return Math.pow( 0.95, scope.zoomSpeed );
 
-    }
+    }*/
 
     function onMouseDown( event ) {
 
@@ -295,14 +295,15 @@ THREE.OrbitControls = function ( object, domElement ) {
 
             rotateStart.set( event.clientX, event.clientY );
 
-        } else if ( event.button === 1 ) {
+        } /*else if ( event.button === 1 ) {
             if ( scope.noZoom === true ) { return; }
 
             state = STATE.DOLLY;
 
             dollyStart.set( event.clientX, event.clientY );
 
-        } else if ( event.button === 2 ) {
+        }*/
+        else if ( event.button === 2 ) {
             if ( scope.noPan === true ) { return; }
 
             state = STATE.PAN;
@@ -339,7 +340,7 @@ THREE.OrbitControls = function ( object, domElement ) {
 
             rotateStart.copy( rotateEnd );
 
-        } else if ( state === STATE.DOLLY ) {
+        } /*else if ( state === STATE.DOLLY ) {
 
             if ( scope.noZoom === true ) return;
 
@@ -358,7 +359,8 @@ THREE.OrbitControls = function ( object, domElement ) {
 
             dollyStart.copy( dollyEnd );
 
-        } else if ( state === STATE.PAN ) {
+        } */
+        else if ( state === STATE.PAN ) {
 
             if ( scope.noPan === true ) return;
 
@@ -388,7 +390,7 @@ THREE.OrbitControls = function ( object, domElement ) {
 
     }
 
-    function onMouseWheel( event ) {
+    /*function onMouseWheel( event ) {
 
         if ( scope.enabled === false || scope.noZoom === true ) return;
 
@@ -414,7 +416,7 @@ THREE.OrbitControls = function ( object, domElement ) {
 
         }
 
-    }
+    }*/
 
     function onKeyDown( event ) {
 
@@ -572,8 +574,8 @@ THREE.OrbitControls = function ( object, domElement ) {
 
     this.domElement.addEventListener( 'contextmenu', function ( event ) { event.preventDefault(); }, false );
     this.domElement.addEventListener( 'mousedown', onMouseDown, false );
-    this.domElement.addEventListener( 'mousewheel', onMouseWheel, false );
-    this.domElement.addEventListener( 'DOMMouseScroll', onMouseWheel, false ); // firefox
+    //this.domElement.addEventListener( 'mousewheel', onMouseWheel, false );
+    //this.domElement.addEventListener( 'DOMMouseScroll', onMouseWheel, false ); // firefox
 
     this.domElement.addEventListener( 'keydown', onKeyDown, false );
 
