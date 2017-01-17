@@ -38,24 +38,31 @@
     csganimate();
 
     material=new THREE.MeshLambertMaterial({color: 0xa9ff, shading: THREE.SmoothShading });
-    var cy_xMesh= new THREE.Mesh(new THREE.CylinderGeometry(0.4,0.4,2.2,32),material);
-    var cy_xCSG=new ThreeBSP(cy_xMesh);
-    currentHex=cy_xMesh.material.emissive.getHex();
-    var cy_yMesh=new THREE.Mesh(new THREE.CylinderGeometry(0.4,0.4,2.2,32),material);
-    cy_yMesh.rotation.x=Math.PI/2;
-    var cy_yCSG= new ThreeBSP(cy_yMesh);
-    var cy_zMesh=new THREE.Mesh(new THREE.CylinderGeometry(0.4,0.4,2.2,32),material);
-    cy_zMesh.rotation.z=Math.PI/2;
-    var cy_zCSG= new ThreeBSP(cy_zMesh);
+    var bigsphereMesh = new THREE.Mesh( new THREE.SphereGeometry( 1.2, 32, 16),material);
+    var bigsphereCSG=new ThreeBSP(bigsphereMesh);
+    var ssphere_xMesh=new THREE.Mesh( new THREE.SphereGeometry( 0.18, 32, 16),material);
+    ssphere_xMesh.translateY(0.8);
+    ssphere_xMesh.translateX(-0.45);
+    ssphere_xMesh.translateZ(-0.45);
+    var ssphere_xCSG=new ThreeBSP(ssphere_xMesh);
+    currentHex=bigsphereMesh.material.emissive.getHex();
+    var ssphere_yMesh= new THREE.Mesh( new THREE.SphereGeometry( 0.18, 32, 16),material);
+    ssphere_yMesh.translateY(0.8);
+    var ssphere_yCSG= new ThreeBSP(ssphere_yMesh);
+    var ssphere_zMesh=new THREE.Mesh( new THREE.SphereGeometry( 0.18, 32, 16),material);
+    ssphere_zMesh.translateY(0.8);
+    ssphere_zMesh.translateX(0.45);
+    ssphere_zMesh.translateZ(0.45);
+    var ssphere_zCSG=new ThreeBSP(ssphere_zMesh);
+
     var cubeMesh	= new THREE.Mesh( new THREE.CubeGeometry( 1.6, 1.6, 1.6 ),material);
     cubeMesh.position.x=0;
     var cubeCSG= new ThreeBSP(cubeMesh);
-    var sphereMesh = new THREE.Mesh( new THREE.SphereGeometry( 1, 32, 16),material);
-    var sphereCSG=new ThreeBSP(sphereMesh);
-    var union1=cy_xCSG.union(cy_yCSG);
-    var union2=union1.union(cy_zCSG);
+
+    var union1=ssphere_xCSG.union(ssphere_zCSG);
+    var union2=union1.union(ssphere_yCSG);
     var subtract1=cubeCSG.subtract(union2);
-    var common=subtract1.intersect(sphereCSG);
+    var common=subtract1.intersect(bigsphereCSG);
     mesh=common.toMesh(new THREE.MeshLambertMaterial({color: 0xa9ff,shading:THREE.SmoothShading}));
     meshs.push(mesh);
     scene.add(mesh);
