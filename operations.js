@@ -57,8 +57,10 @@ function subtract() {
     var newcsg=csgs[first].subtract(csgs[second]);
     addtoObjs(newcsg,csgs[first],csgs[second]);
     var obj=csgobjs[csgobjs.length-1];
-    obj.basename1=csgobjs[first].name;
-    obj.basename2=csgobjs[second].name;
+    var trfirst=traverse_csgobjs(csgs[first]);
+    var trsecond=traverse_csgobjs(csgs[second]);
+    obj.basename1=csgobjs[trfirst].name;
+    obj.basename2=csgobjs[trsecond].name;
     obj.name="subtract";
     obj.opcount=subtractcoutnt++;
     var big,small;
@@ -88,6 +90,12 @@ function subtract() {
             return -1;
         oplog.push("sub");
     showoplog();
+
+    if(stageI[0]==2||stageI[0]==3||stageI[0]==4)
+    {
+        step_win();
+    }
+    check_win();
 }
 
 function union() {
@@ -106,8 +114,10 @@ function union() {
     var newcsg=csgs[first].union(csgs[second]);
     addtoObjs(newcsg,csgs[first],csgs[second]);
     var obj=csgobjs[csgobjs.length-1];
-    obj.basename1=csgobjs[first].name;
-    obj.basename2=csgobjs[second].name;
+    var trfirst=traverse_csgobjs(csgs[first]);
+    var trsecond=traverse_csgobjs(csgs[second]);
+    obj.basename1=csgobjs[trfirst].name;
+    obj.basename2=csgobjs[trsecond].name;
     obj.name="union";
     obj.opcount=unioncount++;
     var big,small;
@@ -140,6 +150,11 @@ function union() {
         else
             oplog.push("union1");
     showoplog();
+    if(stageI[0]==2||stageI[0]==3||stageI[0]==4)
+    {
+        step_win();
+    }
+    check_win();
 }
 
 function intersect() {
@@ -158,8 +173,10 @@ function intersect() {
     var newcsg=csgs[first].intersect(csgs[second]);
     addtoObjs(newcsg,csgs[first],csgs[second]);
     var obj=csgobjs[csgobjs.length-1];
-    obj.basename1=csgobjs[first].name;
-    obj.basename2=csgobjs[second].name;
+    var trfirst=traverse_csgobjs(csgs[first]);
+    var trsecond=traverse_csgobjs(csgs[second]);
+    obj.basename1=csgobjs[trfirst].name;
+    obj.basename2=csgobjs[trsecond].name;
     obj.name="common";
     obj.opcount=commoncount++;
     var big,small;
@@ -189,6 +206,11 @@ function intersect() {
             return -1;
         oplog.push("common");
     showoplog();
+    if(stageI[0]==2||stageI[0]==3||stageI[0]==4)
+    {
+        step_win();
+    }
+    check_win();
 }
 
 function Restart() {
@@ -207,18 +229,23 @@ function Restart() {
         unioncount=0;
         commoncount=0;
         subtractcoutnt=0;
-
-        for(i=0;i<meshs.length;i++)
-        {
-            meshs.pop();
-            csgs.pop();
-        }
-        for(i=0;i<csgobjs.length;i++) csgobjs.pop();
-        for(i=0;i<selection.length;i++) selection.pop();
-        for(i=0;i<oplog.length;i++) oplog.pop();
+        meshs=[];
+        csgs=[];
+        //for(i=0;i<meshs.length;i++)
+        //{
+        //    meshs.pop();
+        //    csgs.pop();
+        //}
+        csgobjs=[];
+        selection=[];
+        //for(i=0;i<csgobjs.length;i++) {csgobjs.pop();}
+        //for(i=0;i<selection.length;i++) {selection.pop();}
+        //for(i=0;i<oplog.length;i++) {oplog.pop();}
+        oplog=[];
     }
 
     steplog=steplog+" Restart, ";
+    opstep=[];
     //window.location.href=this.href;
     //window.location.reload();
     showoplog();
@@ -276,6 +303,7 @@ function GoBack() {
     }
     steplog=steplog+" GoBack, ";
     oplog.pop();
+    opstep.pop();
     showoplog();
 
 }

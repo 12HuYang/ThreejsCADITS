@@ -94,48 +94,178 @@ function submit() {
             break;
         case 1:
             //direct to training-1
+            var complete=check_complete();
+            if(complete==-1)
+            {
+                alert("Task not done yet.");
+                return -1;
+            }
+            var win=check_win();
+            if(win==1)
+            {
+                steplog=steplog+opstep;
+                steplog=steplog+" success";
+            }
+            else
+                steplog=steplog+opstep;
             window.location.replace('csgtest.html?MID='+userID[0]+'&GROUP='+userG[0]+'&STAGE='+stageindex);
             goal.innerHTML=null;
             tutor.innerHTML=null;
             break;
         case 2:
             //direct to training-2
+            var complete=check_complete();
+            if(complete==-1)
+            {
+                alert("Task not done yet.");
+                return -1;
+            }
+            var win=check_win();
+            if(win==-1)
+            {
+                if(userG[0]==1 || userG[0]==3)
+                {
+                    alert("Task not done yet.");
+                    return -1;
+                }
+                steplog=steplog+opstep;
+            }
+            else{
+                steplog=steplog+opstep;
+                steplog=steplog+" success";
+            }
             window.location.replace('csgtest.html?MID='+userID[0]+'&GROUP='+userG[0]+'&STAGE='+stageindex);
             goal.innerHTML=null;
             tutor.innerHTML=null;
             break;
         case 3:
             //direct to training-3
+            var complete=check_complete();
+            if(complete==-1)
+            {
+                alert("Task not done yet.");
+                return -1;
+            }
+            var win=check_win();
+            if(win==-1)
+            {
+                if(userG[0]==1 || userG[0]==3)
+                {
+                    alert("Task not done yet.");
+                    return -1;
+                }
+                steplog=steplog+opstep;
+            }
+            else{
+                steplog=steplog+opstep;
+                steplog=steplog+" success";
+            }
             window.location.replace('csgtest.html?MID='+userID[0]+'&GROUP='+userG[0]+'&STAGE='+stageindex);
             goal.innerHTML=null;
             tutor.innerHTML=null;
             break;
         case 4:
             //direct to post-test_1
+            var complete=check_complete();
+            if(complete==-1)
+            {
+                alert("Task not done yet.");
+                return -1;
+            }
+            var win=check_win();
+            if(win==-1)
+            {
+                if(userG[0]==1 || userG[0]==3)
+                {
+                    alert("Task not done yet.");
+                    return -1;
+                }
+                steplog=steplog+opstep;
+            }
+            else{
+                steplog=steplog+opstep;
+                steplog=steplog+" success";
+            }
             window.location.replace('csgtest.html?MID='+userID[0]+'&GROUP='+userG[0]+'&STAGE='+stageindex);
             goal.innerHTML=null;
             tutor.innerHTML=null;
             break;
         case 5:
             //direct to post-test_2
+            var complete=check_complete();
+            if(complete==-1)
+            {
+                alert("Task not done yet.");
+                return -1;
+            }
+            var win=check_win();
+            if(win==1)
+            {
+                steplog=steplog+opstep;
+                steplog=steplog+" success";
+            }
+            else
+                steplog=steplog+opstep;
             window.location.replace('csgtest.html?MID='+userID[0]+'&GROUP='+userG[0]+'&STAGE='+stageindex);
             goal.innerHTML=null;
             tutor.innerHTML=null;
             break;
         case 6:
             //direct to post-test_3
+            var complete=check_complete();
+            if(complete==-1)
+            {
+                alert("Task not done yet.");
+                return -1;
+            }
+            var win=check_win();
+            if(win==1)
+            {
+                steplog=steplog+opstep;
+                steplog=steplog+" success";
+            }
+            else
+                steplog=steplog+opstep;
             window.location.replace('post-test03.html?MID='+userID[0]+'&GROUP='+userG[0]+'&STAGE='+stageindex);
             goal.innerHTML=null;
             tutor.innerHTML=null;
             break;
         case 7:
             //direct to post-test_4
+            var complete=check_complete();
+            if(complete==-1)
+            {
+                alert("Task not done yet.");
+                return -1;
+            }
+            var win=check_win();
+            if(win==1)
+            {
+                steplog=steplog+opstep;
+                steplog=steplog+" success";
+            }
+            else
+                steplog=steplog+opstep;
             window.location.replace('post-test04.html?MID='+userID[0]+'&GROUP='+userG[0]+'&STAGE='+stageindex);
             goal.innerHTML=null;
             tutor.innerHTML=null;
             break;
         case 8:
             //direct to result page
+            var complete=check_complete();
+            if(complete==-1)
+            {
+                alert("Task not done yet.");
+                return -1;
+            }
+            var win=check_win();
+            if(win==1)
+            {
+                steplog=steplog+opstep;
+                steplog=steplog+" success";
+            }
+            else
+                steplog=steplog+opstep;
             window.location.replace('Logs/result.php');
             break;
 
