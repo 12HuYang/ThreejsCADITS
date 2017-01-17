@@ -1,23 +1,14 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <!--script src="http://mrdoob.github.com/three.js/src/core/Raycaster.js"></script-->
-    <!--script src="https://threejs.org/build/three.js"></script-->
+    <meta charset="UTF-8">
+    <title>Title</title>
     <script src="vendor/three.js/Three.js"></script>
     <script src="vendor/three.js/RequestAnimationFrame.js"></script>
     <script src="vendor/three.js/Stats.js"></script>
     <script src="vendor/three.js/Detector.js"></script>
-    <!--script src="vendor/three.js/ThreeBSP.js"></script-->
-
-    <!--script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r73/three.min.js"></script-->
     <script src="http://mrdoob.github.com/three.js/build/three.min.js"></script>
-    <!--script src="http://mrdoob.github.com/three.js/examples/js/libs/stats.min.js"></script-->
     <script src="vendor/OrbitControls.js"></script>
-
-
-    <!--script src="http://github.com/evanw/csg.js"></script-->
-
-    <!--script src="vendor/csg.js"></script>
-    <script src="vendor/ThreeCSG.js"></script-->
     <script src="vendor/ThreeCSG_02.js"></script>
 
     <script src="THREEx.GeometryUtils.js"></script>
@@ -27,74 +18,10 @@
     <script src="Primitives.js"></script>
     <script src="functions.js"></script>
 
-    <style>
-        body {
-            background: #408040;
-            overflow:hidden;
-            padding:0;
-            margin:0;
-
-            color: #CCCCCC;
-            font-family:Monospace;
-            font-size:13px;
-            text-align:center;
-        }
-        #info {
-            position: absolute;
-            top: 0px; width: 100%;
-            padding: 5px;
-        }
-        #info a {
-            color	: #FFAAFF;
-        }
-    </style>
 </head>
 <body>
 <div id="statu"></div>
 <div id="container"></div>
-<div id="info">
-    <!--a href="http://webglreport.com/">WebGL support test</a> Test your browser if it supports WebGL 1 or not <br-->
-    <!--a href="/blog/2011/12/10/constructive-solid-geometry-with-csg-js/" target="_blank">LearningThree.js</a> - Contructive Solid Geometry-->
-    <!--br/>
-    Use
-    <a href="http://evanw.github.com/csg.js/" target="_blank">csg.js</a>
-    ,
-    <a href="http://chandler.prallfamily.com/2011/12/constructive-solid-geometry-with-three-js/" target="_blank">ThreeCSG.js</a>
-    and
-    <a href="https://github.com/mrdoob/three.js/" target="_blank">three.js</a>
-    <br/-->
-    <br>
-    Basic Shapes:
-    <!--a href="#cylinder_x" onclick="window.location.href=this.href;window.location.reload();">cylinder_x</a-->
-    <a href="#cylinder_x" onclick="cylinder_x();">cylinder_x</a>
-    <!--a href="#cylinder_y" onclick="window.location.href=this.href;window.location.reload();">cylinder_y</a-->
-    <a href="#cylinder_y" onclick="cylinder_y();">cylinder_y</a>
-    <!--a href="#cylinder_z" onclick="window.location.href=this.href;window.location.reload();">cylinder_z</a-->
-    <a href="#cylinder_z" onclick="cylinder_z();">cylinder_z</a>
-    <!--a href="#cube" onclick="window.location.href=this.href;window.location.reload();">cube</a-->
-    <a href="#cube" onclick="cube();">cube</a>
-    <!--a href="#sphere" onclick="window.location.href=this.href;window.location.reload();">sphere</a-->
-    <a href="#sphere" onclick="sphere();">sphere</a>
-    <br><br/>
-    Operations:
-    <!--a href="#subtract" onclick="window.location.href=this.href;window.location.reload();">subtract</a-->
-    <a href="#subtract" onclick="subtract();">subtract</a>
-    -
-    <!--a href="#union" onclick="window.location.href=this.href;window.location.reload();">union</a-->
-    <a href="#union" onclick="union();">union</a>
-    -
-    <!--a href="#intersect" onclick="window.location.href=this.href;window.location.reload();">intersect</a-->
-    <a href="#intersect" onclick="intersect();">intersect</a>
-    <br><br/>
-    Edit:
-    <a href="#Restart" onclick="Restart();">Restart</a>
-    -
-    <a href="#GoBack" onclick="GoBack();">GoBack</a>
-    -
-    <a href="#Submit" onclick="submit()">Submit</a>
-    <br>
-</div>
-
 <script type="text/javascript">
     var camera, scene, renderer,raycaster,stats;
     var geometry, material, mesh;
@@ -102,49 +29,59 @@
     var windowHalfX=window.innerWidth/2;
     var windowHalfY=window.innerHeight/2;
     var currentHex;
-    var goalwindow=false;
-    cyx=false,cyy=false,cyz=false,excube=false,exsphere=false;
+
     csgmouseX=0;
     csgmouseY=0;
-    csgobjs=[];
-    csgs=[];
     meshs=[];
     selection=[];
-    resultcsgs=[];
     csginit();
     csganimate();
-    unioncount=0;
-    commoncount=0;
-    subtractcoutnt=0;
-    stages=["basicoperation","pretest","train_1","train_2","train_3","post-test_1","post-test_2","post-test_3","post-test_4"];
 
-    userID=[];
-    userG=[];
-    stageI=[];
-    steplog=[];
+    material=new THREE.MeshLambertMaterial({color: 0xa9ff, shading: THREE.SmoothShading });
+    var big_cylinderMesh = new THREE.Mesh(new THREE.CylinderGeometry(0.4,0.4,1.8,32),material);
+    big_cylinderMesh.rotation.z=Math.PI/6;
+    big_cylinderMesh.translateZ(0.2);
+    big_cylinderMesh.translateX(-0.1);
+    var big_cylinderCSG=new ThreeBSP(big_cylinderMesh);
+    currentHex=big_cylinderMesh.material.emissive.getHex();
 
-    getstageindex();
-    getuserGROUP();
-    getuserID();
+    var ssmall_cylinderMesh=new THREE.Mesh(new THREE.CylinderGeometry(0.1,0.1,0.1,32),material);
+    ssmall_cylinderMesh.rotation.x=Math.PI/1.9;
+    ssmall_cylinderMesh.rotation.z=Math.PI/20;
+    ssmall_cylinderMesh.translateZ(-0.1);
+    ssmall_cylinderMesh.translateX(-0.4);
+    ssmall_cylinderMesh.translateY(0.2);
+    var ssmall_cylinderxCSG=new ThreeBSP(ssmall_cylinderMesh);
 
-    showstatue();
+    var sphere_xMesh=  new THREE.Mesh( new THREE.SphereGeometry( 1.2, 32, 16),material);
+    var ssphere_xCSG= new ThreeBSP(sphere_xMesh);
 
-    showgoal();
+    var sphere_yMesh=new THREE.Mesh( new THREE.SphereGeometry( 1, 32, 16),material);
+    sphere_yMesh.translateY(-0.8);
+    sphere_yMesh.translateX(-0.8);
+    var ssphere_yCSG=new ThreeBSP(sphere_yMesh);
+
+    var cuboidMesh	= new THREE.Mesh( new THREE.CubeGeometry( 0.3, 0.1, 0.13 ),material);
+    cuboidMesh.rotation.x=Math.PI/1.9;
+    cuboidMesh.rotation.z=Math.PI/20;
+    cuboidMesh.translateZ(-0.1);
+    cuboidMesh.translateX(-0.4);
+    cuboidMesh.translateY(0.2);
+    var cuboidCSG= new ThreeBSP(cuboidMesh);
+
+    //var union1=ssphere_xCSG.union(ssphere_zCSG);
+    //var union2=union1.union(ssphere_yCSG);
+    //var subtract1=cubeCSG.subtract(union2);
+    var common1=ssphere_xCSG.intersect(ssphere_yCSG);
+    var common2=common1.intersect(big_cylinderCSG);
+    var subtract=common2.subtract(cuboidCSG);
+    var union=subtract.union(ssmall_cylinderxCSG);
+    mesh=union.toMesh(new THREE.MeshLambertMaterial({color: 0xa9ff,shading:THREE.SmoothShading}));
+    meshs.push(mesh);
+    scene.add(mesh);
 
 
-    function showgoal() {
-        if(goalwindow) return -1;
-        var goal=parent.window.document.getElementById("Goalwindow");
-        var goalcontent="<iframe src='goal01.html' width='500' height='300' frameborder='0' style='float: left; margin-left: 1em' scrolling='no'></iframe>";
 
-        goal.innerHTML=goal.innerHTML+"<p style='text-indent: 50px'> Goal 3D Geometry - orbit and pan the geometry to check</p>"+goalcontent;
-        goalwindow=true;
-    }
-
-    function showstatue() {
-        var status=document.getElementById("statu");
-        status.innerHTML="  current statge is :"+stages[stageI[0]]+"<br>";
-    }
 
     function csginit() {
         scene=new THREE.Scene();
@@ -156,7 +93,7 @@
 
 
         camera=new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 10000);
-        camera.position.set(0,0,4);
+        camera.position.set(0,0,2);
         camera.lookAt(scene.position);
         scene.add(camera);
 
@@ -197,11 +134,11 @@
 
         raycaster = new THREE.Raycaster();
         stats=new Stats();
-        document.getElementById('container').appendChild(stats.domElement);
+        //document.getElementById('container').appendChild(stats.domElement);
 
     }
 
-    function csganimate() {
+    function csganimate(){
         requestAnimationFrame(csganimate);
 
         rendercsg();
@@ -272,7 +209,7 @@
             for(var i=0;i<selection.length;i++)
             {
                 if(selectobject==selection[i])
-                        return i;
+                    return i;
             }
         }
         return -1;
@@ -284,13 +221,11 @@
             for(var i=0;i<meshs.length;i++)
             {
                 if(selectobject==meshs[i])
-                        return i;
+                    return i;
             }
         }
         return -1;
     }
-
-    
 
 
 </script>

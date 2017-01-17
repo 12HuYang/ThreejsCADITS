@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8512abad-3f25-4644-8aa2-a7985322021c" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/goal03.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/goal02.html" afterPath="$PROJECT_DIR$/goal02.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/post-test03.html" afterPath="$PROJECT_DIR$/post-test03.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csgtest.html" afterPath="$PROJECT_DIR$/csgtest.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/post-test04.html" afterPath="$PROJECT_DIR$/post-test04.html" />
     </list>
     <ignored path="three-d-js.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,12 +36,12 @@
             <entry file="file://$PROJECT_DIR$/csgtest.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="382">
-                  <caret line="138" column="143" selection-start-line="138" selection-start-column="143" selection-end-line="138" selection-end-column="143" />
+                  <caret line="137" column="143" selection-start-line="137" selection-start-column="143" selection-end-line="137" selection-end-column="143" />
                   <folding>
-                    <element signature="e#2060#2383#0" expanded="false" />
-                    <element signature="e#7555#8471#0" expanded="false" />
-                    <marker date="1484668919741" expanded="true" signature="5095:5124" ph="..." />
-                    <marker date="1484668919741" expanded="true" signature="5203:5220" ph="..." />
+                    <element signature="e#2059#2382#0" expanded="false" />
+                    <element signature="e#7554#8470#0" expanded="false" />
+                    <marker date="1484670881014" expanded="true" signature="5094:5123" ph="..." />
+                    <marker date="1484670881014" expanded="true" signature="5202:5219" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -72,14 +73,26 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="post-test04.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="post-test04.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/post-test04.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="204">
-                  <caret line="12" column="96" selection-start-line="12" selection-start-column="96" selection-end-line="12" selection-end-column="96" />
+                <state relative-caret-position="-51">
+                  <caret line="118" column="54" selection-start-line="118" selection-start-column="54" selection-end-line="118" selection-end-column="54" />
                   <folding>
                     <element signature="e#2059#2382#0" expanded="false" />
+                    <marker date="1484670881007" expanded="true" signature="5118:5147" ph="..." />
+                    <marker date="1484670881007" expanded="true" signature="5226:5243" ph="..." />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="goal03.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/goal03.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="308">
+                  <caret line="95" column="33" selection-start-line="95" selection-start-column="33" selection-end-line="95" selection-end-column="33" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -87,23 +100,13 @@
           <file leaf-file-name="post-test03.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/post-test03.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="357">
-                  <caret line="115" column="17" selection-start-line="115" selection-start-column="17" selection-end-line="115" selection-end-column="17" />
+                <state relative-caret-position="170">
+                  <caret line="104" column="19" selection-start-line="104" selection-start-column="19" selection-end-line="104" selection-end-column="19" />
                   <folding>
                     <element signature="e#2060#2383#0" expanded="false" />
                     <marker date="1484669599526" expanded="true" signature="5128:5157" ph="..." />
                     <marker date="1484669599526" expanded="true" signature="5236:5253" ph="..." />
                   </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="basicoperation.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/basicoperation.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="408">
-                  <caret line="105" column="0" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
-                  <folding />
                 </state>
               </provider>
             </entry>
@@ -138,26 +141,21 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="goal02.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/goal02.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="612">
-                  <caret line="63" column="41" selection-start-line="63" selection-start-column="41" selection-end-line="63" selection-end-column="41" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
         </leaf>
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="Primitives.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Primitives.js">
+          <file leaf-file-name="csgtest.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/csgtest.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="781">
-                  <caret line="142" column="20" selection-start-line="142" selection-start-column="20" selection-end-line="142" selection-end-column="20" />
-                  <folding />
+                <state relative-caret-position="331">
+                  <caret line="141" column="5" selection-start-line="141" selection-start-column="5" selection-end-line="141" selection-end-column="5" />
+                  <folding>
+                    <element signature="e#2059#2382#0" expanded="false" />
+                    <element signature="e#7554#8470#0" expanded="false" />
+                    <marker date="1484670881014" expanded="true" signature="5094:5123" ph="..." />
+                    <marker date="1484670881014" expanded="true" signature="5202:5219" ph="..." />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -202,16 +200,17 @@
         <option value="$PROJECT_DIR$/Logs/result.php" />
         <option value="$PROJECT_DIR$/vendor/OrbitControls.js" />
         <option value="$PROJECT_DIR$/vendor/stats.js" />
-        <option value="$PROJECT_DIR$/post-test04.html" />
         <option value="$PROJECT_DIR$/basicoperation.html" />
         <option value="$PROJECT_DIR$/homepage.html" />
         <option value="$PROJECT_DIR$/Goals/goal01.html" />
         <option value="$PROJECT_DIR$/vendor/three.js/Stats.js" />
         <option value="$PROJECT_DIR$/goal01.html" />
         <option value="$PROJECT_DIR$/functions.js" />
-        <option value="$PROJECT_DIR$/csgtest.html" />
         <option value="$PROJECT_DIR$/post-test03.html" />
         <option value="$PROJECT_DIR$/goal02.html" />
+        <option value="$PROJECT_DIR$/post-test04.html" />
+        <option value="$PROJECT_DIR$/csgtest.html" />
+        <option value="$PROJECT_DIR$/goal03.html" />
       </list>
     </option>
   </component>
@@ -401,7 +400,7 @@
       <workItem from="1483036441902" duration="8558000" />
       <workItem from="1483550753049" duration="2977000" />
       <workItem from="1483746402249" duration="46538000" />
-      <workItem from="1484603108438" duration="9057000" />
+      <workItem from="1484603108438" duration="10115000" />
     </task>
     <task id="LOCAL-00001" summary="add goback, addtocsgobj">
       <created>1483043418918</created>
@@ -571,17 +570,24 @@
       <option name="project" value="LOCAL" />
       <updated>1484669020130</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="homepage and stages modify&#10;">
+      <created>1484670100425</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1484670100425</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="144560000" />
+    <option name="totallyTimeSpent" value="145618000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21268657" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21268657" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5021322" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -654,22 +660,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/THREEx.GeometryUtils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="35" column="48" selection-start-line="35" selection-start-column="48" selection-end-line="35" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/three.js/Detector.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="25" column="41" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/firsttest.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1006,23 +996,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/csgtest.html">
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="138" column="143" selection-start-line="138" selection-start-column="143" selection-end-line="138" selection-end-column="143" />
-          <folding>
-            <element signature="e#2060#2383#0" expanded="false" />
-            <element signature="e#7555#8471#0" expanded="false" />
-            <marker date="1484668919741" expanded="true" signature="5095:5124" ph="..." />
-            <marker date="1484668919741" expanded="true" signature="5203:5220" ph="..." />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/goal02.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="63" column="41" selection-start-line="63" selection-start-column="41" selection-end-line="63" selection-end-column="41" />
+        <state relative-caret-position="544">
+          <caret line="47" column="52" selection-start-line="47" selection-start-column="52" selection-end-line="47" selection-end-column="52" />
           <folding />
         </state>
       </provider>
@@ -1032,6 +1017,31 @@
         <state relative-caret-position="322">
           <caret line="175" column="32" selection-start-line="175" selection-start-column="32" selection-end-line="175" selection-end-column="32" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/csgtest.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="137" column="143" selection-start-line="137" selection-start-column="143" selection-end-line="137" selection-end-column="143" />
+          <folding>
+            <element signature="e#2059#2382#0" expanded="false" />
+            <element signature="e#7554#8470#0" expanded="false" />
+            <marker date="1484670881014" expanded="true" signature="5094:5123" ph="..." />
+            <marker date="1484670881014" expanded="true" signature="5202:5219" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/post-test03.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="104" column="19" selection-start-line="104" selection-start-column="19" selection-end-line="104" selection-end-column="19" />
+          <folding>
+            <element signature="e#2060#2383#0" expanded="false" />
+            <marker date="1484669599526" expanded="true" signature="5128:5157" ph="..." />
+            <marker date="1484669599526" expanded="true" signature="5236:5253" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1049,25 +1059,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/post-test03.html">
+    <entry file="file://$PROJECT_DIR$/post-test04.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="115" column="17" selection-start-line="115" selection-start-column="17" selection-end-line="115" selection-end-column="17" />
+        <state relative-caret-position="-51">
+          <caret line="118" column="54" selection-start-line="118" selection-start-column="54" selection-end-line="118" selection-end-column="54" />
           <folding>
-            <element signature="e#2060#2383#0" expanded="false" />
-            <marker date="1484669599526" expanded="true" signature="5128:5157" ph="..." />
-            <marker date="1484669599526" expanded="true" signature="5236:5253" ph="..." />
+            <element signature="e#2059#2382#0" expanded="false" />
+            <marker date="1484670881007" expanded="true" signature="5118:5147" ph="..." />
+            <marker date="1484670881007" expanded="true" signature="5226:5243" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/post-test04.html">
+    <entry file="file://$PROJECT_DIR$/goal03.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="96" selection-start-line="12" selection-start-column="96" selection-end-line="12" selection-end-column="96" />
-          <folding>
-            <element signature="e#2059#2382#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="308">
+          <caret line="95" column="33" selection-start-line="95" selection-start-column="33" selection-end-line="95" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>

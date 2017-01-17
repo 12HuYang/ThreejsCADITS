@@ -102,6 +102,7 @@
     var windowHalfX=window.innerWidth/2;
     var windowHalfY=window.innerHeight/2;
     var currentHex;
+    var goalwindow=false;
     cyx=false,cyy=false,cyz=false,excube=false,exsphere=false;
     csgmouseX=0;
     csgmouseY=0;
@@ -116,6 +117,7 @@
     commoncount=0;
     subtractcoutnt=0;
     stages=["basicoperation","pretest","train_1","train_2","train_3","post-test_1","post-test_2","post-test_3","post-test_4"];
+
     steplog=[];
     userID=[];
     userG=[];
@@ -126,6 +128,18 @@
     getuserID();
 
     showstatue();
+
+    showgoal();
+
+
+    function showgoal() {
+        if(goalwindow) return -1;
+        var goal=parent.window.document.getElementById("Goalwindow");
+        var goalcontent="<iframe src='goal03.html' width='500' height='300' frameborder='0' style='float: left; margin-left: 1em' scrolling='no'></iframe>";
+
+        goal.innerHTML=goal.innerHTML+"<p style='text-indent: 50px'> Goal 3D Geometry - orbit and pan the geometry to check</p>"+goalcontent;
+        goalwindow=true;
+    }
 
     function showstatue() {
         var status=document.getElementById("statu");
