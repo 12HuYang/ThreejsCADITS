@@ -60,7 +60,13 @@
     meshs.push(mesh);
     scene.add(mesh);
 
+    showstatue();
 
+
+    function showstatue() {
+        var status=document.getElementById("statu");
+        status.innerHTML=status.innerHTML+"<p style='text-indent: 50px'>Goal 3D Geometry - orbit and pan the geometry to check</p>";
+    }
 
 
     function csginit() {

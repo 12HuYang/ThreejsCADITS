@@ -3,6 +3,32 @@
  * Boolean operations with selected primitives
  */
 
+sub2=0;
+uni2=0;
+com2=0;
+function showoplog() {
+    var unioncount=0;
+    var subcount=0;
+    var intercount=0;
+    for(var i=0;i<oplog.length;i++)
+    {
+        if(oplog[i]=="sub")
+            subcount++;
+        if(oplog[i]=="common")
+            intercount++;
+        if(oplog[i]=="union1")
+            unioncount++;
+        if(oplog[i]=="union2")
+            unioncount++;
+    }
+    sub2=sub-subcount;
+    uni2=uni-unioncount;
+    com2=com-intercount;
+    var goal=document.getElementById("operation");
+    var goalcontent="Subtract: "+sub2+" Union: "+uni2+" Intersect: "+com2;
+    goal.innerHTML=goalcontent;
+}
+
 function addtoObjs(csg,base1,base2) {   //csgobjs objects only could be deleted when user press "GoBack" or "Restart"
                                         //csgobjs is considered as a operation history of user
     if(typeof (base1)==='undefined') base1=null;
@@ -16,6 +42,11 @@ function addtoObjs(csg,base1,base2) {   //csgobjs objects only could be deleted 
 }
 
 function subtract() {
+    if(sub2==0)
+    {
+        alert("No subtract operation available");
+        return -1;
+    }
     if(selection.length!=2)
     {
         alert("Invalid operation. selection.length =" + selection.length);
@@ -52,9 +83,19 @@ function subtract() {
     scene.add(meshs[meshs.length-1]);
     selection=[];
     steplog=steplog+" ["+obj.basename1+", subtract ,"+obj.basename2+"], ";
+    if(Number(stageI[0])!=8)
+        if((oplog.indexOf("sub"))!=-1)
+            return -1;
+        oplog.push("sub");
+    showoplog();
 }
 
 function union() {
+    if(uni2==0)
+    {
+        alert("No union operation available");
+        return -1;
+    }
     if(selection.length!=2)
     {
         alert("Invalid operation. selection.length =" + selection.length);
@@ -91,9 +132,22 @@ function union() {
     scene.add(meshs[meshs.length-1]);
     selection=[];
     steplog=steplog+" ["+obj.basename1+", union ,"+obj.basename2+"], ";
+    if(Number(stageI[0])!=8)
+        if((oplog.indexOf("union2"))!=-1)
+           return -1;
+        if((oplog.indexOf("union1"))!=-1)
+            oplog.push("union2");
+        else
+            oplog.push("union1");
+    showoplog();
 }
 
 function intersect() {
+    if(com2==0)
+    {
+        alert("No intersect operation available.");
+        return -1;
+    }
     if(selection.length!=2)
     {
         alert("Invalid operation. selection.length =" + selection.length);
@@ -130,6 +184,11 @@ function intersect() {
     scene.add(meshs[meshs.length-1]);
     selection=[];
     steplog=steplog+" ["+obj.basename1+", intersect ,"+obj.basename2+"], ";
+    if(Number(stageI[0])!=8)
+        if((oplog.indexOf("common"))!=-1)
+            return -1;
+        oplog.push("common");
+    showoplog();
 }
 
 function Restart() {
@@ -148,6 +207,7 @@ function Restart() {
         unioncount=0;
         commoncount=0;
         subtractcoutnt=0;
+
         for(i=0;i<meshs.length;i++)
         {
             meshs.pop();
@@ -155,11 +215,13 @@ function Restart() {
         }
         for(i=0;i<csgobjs.length;i++) csgobjs.pop();
         for(i=0;i<selection.length;i++) selection.pop();
+        for(i=0;i<oplog.length;i++) oplog.pop();
     }
 
     steplog=steplog+" Restart, ";
     //window.location.href=this.href;
     //window.location.reload();
+    showoplog();
 }
 
 function traverse_csgobjs(csgobj) {
@@ -213,6 +275,8 @@ function GoBack() {
         selection.pop();
     }
     steplog=steplog+" GoBack, ";
+    oplog.pop();
+    showoplog();
 
 }
 

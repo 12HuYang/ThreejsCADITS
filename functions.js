@@ -114,21 +114,25 @@ function submit() {
             //direct to post-test_1
             window.location.replace('csgtest.html?MID='+userID[0]+'&GROUP='+userG[0]+'&STAGE='+stageindex);
             goal.innerHTML=null;
+            tutor.innerHTML=null;
             break;
         case 5:
             //direct to post-test_2
             window.location.replace('csgtest.html?MID='+userID[0]+'&GROUP='+userG[0]+'&STAGE='+stageindex);
             goal.innerHTML=null;
+            tutor.innerHTML=null;
             break;
         case 6:
             //direct to post-test_3
             window.location.replace('post-test03.html?MID='+userID[0]+'&GROUP='+userG[0]+'&STAGE='+stageindex);
             goal.innerHTML=null;
+            tutor.innerHTML=null;
             break;
         case 7:
             //direct to post-test_4
             window.location.replace('post-test04.html?MID='+userID[0]+'&GROUP='+userG[0]+'&STAGE='+stageindex);
             goal.innerHTML=null;
+            tutor.innerHTML=null;
             break;
         case 8:
             //direct to result page

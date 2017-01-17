@@ -51,6 +51,7 @@
 </head>
 <body>
 <div id="statu"></div>
+<div id="operation"></div>
 <div id="container"></div>
 <div id="info">
     <!--a href="http://webglreport.com/">WebGL support test</a> Test your browser if it supports WebGL 1 or not <br-->
@@ -63,7 +64,7 @@
     and
     <a href="https://github.com/mrdoob/three.js/" target="_blank">three.js</a>
     <br/-->
-    <br>
+    <br><br><br>
     Basic Shapes:
     <!--a href="#cylinder_x" onclick="window.location.href=this.href;window.location.reload();">cylinder_x</a-->
     <a href="#cylinder_x" onclick="cylinder_x();">cylinder_x</a>
@@ -95,6 +96,7 @@
     <br>
 </div>
 
+
 <script type="text/javascript">
     var camera, scene, renderer,raycaster,stats;
     var geometry, material, mesh;
@@ -104,6 +106,7 @@
     var currentHex;
     var goalwindow=false;
     var tutorialwindow=false;
+    sub=1,uni=2,com=1;
     cyx=false,cyy=false,cyz=false,excube=false,exsphere=false;
     csgmouseX=0;
     csgmouseY=0;
@@ -112,6 +115,7 @@
     meshs=[];
     selection=[];
     resultcsgs=[];
+    oplog=[];
     csginit();
     csganimate();
     unioncount=0;
@@ -124,21 +128,39 @@
     stageI=[];
     steplog=[];
 
+
     getstageindex();
     getuserGROUP();
     getuserID();
 
     showstatue();
 
-    showgoal();
+   // showgoal();
+   // showtutor();
+    showoplog();
 
+
+
+
+    function showtutor() {
+        if(tutorialwindow) return -1;
+        if(Number(stageI[0])==2 || Number(stageI[0])==3||Number(stageI[0])==4)
+        {
+            var goal=parent.window.document.getElementById("Tutorial");
+            var goalcontent="<iframe src='tutorial.html' width='500' height='500' frameborder='0' style='float: left; margin-left: 1em' scrolling='no'></iframe>";
+
+            goal.innerHTML=goal.innerHTML+goalcontent;
+            goalwindow=true;
+        }
+
+    }
 
     function showgoal() {
         if(goalwindow) return -1;
         var goal=parent.window.document.getElementById("Goalwindow");
         var goalcontent="<iframe src='goal01.html' width='500' height='300' frameborder='0' style='float: left; margin-left: 1em' scrolling='no'></iframe>";
 
-        goal.innerHTML=goal.innerHTML+"<p style='text-indent: 50px'> Goal 3D Geometry - orbit and pan the geometry to check</p>"+goalcontent;
+        goal.innerHTML=goal.innerHTML+goalcontent;
         goalwindow=true;
     }
 
