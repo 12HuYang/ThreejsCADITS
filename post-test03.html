@@ -51,6 +51,7 @@
 </head>
 <body>
 <div id="statu"></div>
+<div id="operation"></div>
 <div id="container"></div>
 
 <div id="info">
@@ -64,7 +65,7 @@
     and
     <a href="https://github.com/mrdoob/three.js/" target="_blank">three.js</a>
     <br/-->
-    <br>
+    <br><br><br>
     Basic Shapes:
     <!--a href="#cylinder_x" onclick="window.location.href=this.href;window.location.reload();">cylinder_x</a-->
     <a href="#small_sphere_x" onclick="ssphere_x();">small_sphere_x</a>
@@ -96,6 +97,7 @@
     <br>
 </div>
 
+
 <script type="text/javascript">
     var camera, scene, renderer,raycaster,stats;
     var geometry, material, mesh;
@@ -104,6 +106,8 @@
     var windowHalfY=window.innerHeight/2;
     var currentHex;
     var goalwindow=false;
+
+    sub=1,uni=2,com=1;
     cyx=false,cyy=false,cyz=false,excube=false,exsphere=false;
     csgmouseX=0;
     csgmouseY=0;
@@ -112,6 +116,7 @@
     meshs=[];
     selection=[];
     resultcsgs=[];
+    oplog=[];
     csginit();
     csganimate();
     unioncount=0;
@@ -124,6 +129,7 @@
     userG=[];
     stageI=[];
 
+
     getstageindex();
     getuserGROUP();
     getuserID();
@@ -131,12 +137,13 @@
     showstatue();
 
     showgoal();
+    showoplog();
 
 
     function showgoal() {
         if(goalwindow) return -1;
         var goal=parent.window.document.getElementById("Goalwindow");
-        var goalcontent="<iframe src='goal02.html' width='500' height='300' frameborder='0' style='float: left; margin-left: 1em' scrolling='no'></iframe>";
+        var goalcontent="<iframe name='goal' src='goal02.html' width='500' height='300' frameborder='0' style='float: left; margin-left: 1em' scrolling='no'></iframe>";
 
         goal.innerHTML=goal.innerHTML+"<p style='text-indent: 50px'> Goal 3D Geometry - orbit and pan the geometry to check</p>"+goalcontent;
         goalwindow=true;

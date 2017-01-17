@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style type="text/css">
+        p.solid {border-style: solid;}
+    </style>
 </head>
 <body>
 <div id="statu"></div>
@@ -11,7 +14,7 @@
     showstatue();
     function showstatue() {
         var status=document.getElementById("statu");
-        status.innerHTML=status.innerHTML+"<p align='center'>Tutor suggestion</p>";
+        status.innerHTML=status.innerHTML+"<p align='center' class='solid'>Tutor suggestion</p>";
     }
 </script>
 
