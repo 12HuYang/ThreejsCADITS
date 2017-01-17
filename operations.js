@@ -95,7 +95,8 @@ function subtract() {
     {
         step_win();
     }
-    check_win();
+    var win=check_win();
+    if(win!=-1) alert("Congratulate!!");
 }
 
 function union() {
@@ -154,7 +155,8 @@ function union() {
     {
         step_win();
     }
-    check_win();
+    var win=check_win();
+    if(win!=-1) alert("Congratulate!!");
 }
 
 function intersect() {
@@ -210,7 +212,8 @@ function intersect() {
     {
         step_win();
     }
-    check_win();
+    var win=check_win();
+    if(win!=-1) alert("Congratulate!!");
 }
 
 function Restart() {
