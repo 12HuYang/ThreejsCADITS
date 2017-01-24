@@ -46,11 +46,57 @@ function check_win() {   //under 4 steps constrains, pre-test, train_1,2,3, post
             //alert("Congratulate !!");
             //steplog=steplog+opstep;
             //steplog=steplog+" success";
+            if(stageI[0]==2||stageI[0]==3||stageI[0]==4)
+            {
+                var tutorwindow=parent.frames['tutor'].document.getElementById("tutorcontent");
+                var valid=checkusedsq(ophis);
+                if(valid==1)
+                {
+                    usedsq.push(ophis);
+                    return 1;
+                }else{
+                    alert("Operation sequence has been used. Check Tutor Suggestion Window.");
+                    var opsq=[];
+                    for(var k=0;k<ophis.length;k++){
+                        if(ophis[k]==1)
+                            opsq=opsq+"union, ";
+                        if(ophis[k]==2)
+                            opsq=opsq+"union, ";
+                        if(ophis[k]==3)
+                            opsq=opsq+"intersect, ";
+                        if(ophis[k]==4)
+                            opsq=opsq+"subtract, ";
+                    }
+                    tutorwindow.innerHTML=tutorwindow.innerHTML+"<p>Current operation order"+ " [ "+opsq+" ] "+"has been used before, try other orders.</p>";
+                    return -1;
+                }
+
+            }
+
             return 1;
         }
         rcount=0;
     }
+
     return -1;
+}
+
+function checkusedsq(ophis) {
+    if(usedsq.length==0)
+        return 1;
+    var count=0;
+    for(var i=0;i<usedsq.length;i++)
+    {
+        for(var j=0;j<ophis.length;j++)
+        {
+            if(ophis[j]==usedsq[i][j])
+                count++;
+        }
+        if(count==ophis.length)
+            return -1;
+        count=0;
+    }
+    return 1;
 }
 
 function check_op() {   //under 4 steps constrains, pre-test, train_1,2,3, post-test 1,2,3
@@ -74,7 +120,7 @@ function check_op() {   //under 4 steps constrains, pre-test, train_1,2,3, post-
         {
             v1=rsub.indexOf(obj.basename1);
             v2=rsub.indexOf(obj.basename2);
-            if(v2!="union")
+            if(rsub[v2]!="union")
                 return -1;
             if(v1==-1 || v2==-1)
                 return -1;
@@ -179,19 +225,19 @@ function check_step() {
                     tutorwindow.innerHTML=tutorwindow.innerHTML+"<p>Wrong geometry selection for Union, the "+runion1[v1]+" is a good selection, but currently there is no geometry could be the second selection.</p>";
                 return -1;
             }
-            if(v1!=-1&&v2!=-1)
+            if(v1==-1&&v2==-1)
             {
                 alert("Incorrect operation. Check Tutor Suggestion Window.");
                 tutorwindow.innerHTML=tutorwindow.innerHTML+"<p>Wrong geometry selection for Union, Goback and try other geometries.</p>";
                 return -1;
             }
-            opstep=opstep+"[ "+obj.name+" "+obj.basename1+" "+obj.basename2+" ] ";
+            //opstep=opstep+"[ "+obj.name+" "+obj.basename1+" "+obj.basename2+" ] ";
         }
         if(obj.name=="subtract")
         {
             v1=rsub.indexOf(obj.basename1);
             v2=rsub.indexOf(obj.basename2);
-            if(v2!="union")
+            if(rsub[v2]!="union")
             {
                 alert("Incorrect operation. Check Tutor Suggestion Window.");
                 tutorwindow.innerHTML=tutorwindow.innerHTML+"<p>Wrong second selection for Subtract, it should be a result of union of two geometries.</p>";
@@ -207,7 +253,7 @@ function check_step() {
                     tutorwindow.innerHTML=tutorwindow.innerHTML+"<p>Wrong geometry selection for Union, the "+rsub1[v2]+" is a good selection, but currently there is no geometry could be the second selection.</p>";
                 return -1;
             }
-            if(v1!=-1&&v2==-1)
+            if(v1=-1&&v2==-1)
             {
                 var fv=findsubcsg(v1);
                 if(fv!=-1)
@@ -216,19 +262,19 @@ function check_step() {
                     tutorwindow.innerHTML=tutorwindow.innerHTML+"<p>Wrong geometry selection for Union, the "+rsub1[v1]+" is a good selection, but currently there is no geometry could be the second selection.</p>";
                 return -1;
             }
-            if(v1!=-1&&v2!=-1)
+            if(v1==-1&&v2==-1)
             {
                 alert("Incorrect operation. Check Tutor Suggestion Window.");
                 tutorwindow.innerHTML=tutorwindow.innerHTML+"<p>Wrong geometry selection for Subtract, Goback and try other geometries.</p>";
                 return -1;
             }
-            opstep=opstep+"[ "+obj.name+" "+obj.basename1+" "+obj.basename2+" ]";
+            //opstep=opstep+"[ "+obj.name+" "+obj.basename1+" "+obj.basename2+" ]";
 
         }
         if(obj.name=="common")
         {
             v1=rcom.indexOf(obj.basename1);
-            v2=rsub.indexOf(obj.basename2);
+            v2=rcom.indexOf(obj.basename2);
             if(v1==-1 && v2!=-1)
             {
                 alert("Incorrect operation. Check Tutor Suggestion Window.");
@@ -249,13 +295,13 @@ function check_step() {
                     tutorwindow.innerHTML=tutorwindow.innerHTML+"<p>Wrong geometry selection for Union, the "+rcom1[v2]+" is a good selection, but currently there is no geometry could be the second selection.</p>";
                 return -1;
             }
-            if(v1!=-1&&v2!=-1)
+            if(v1==-1&&v2==-1)
             {
                 alert("Incorrect operation. Check Tutor Suggestion Window.");
                 tutorwindow.innerHTML=tutorwindow.innerHTML+"<p>Wrong geometry selection for Intersect, Goback and try other geometries.</p>";
                 return -1;
             }
-            opstep=opstep+"[ "+obj.name+" "+obj.basename1+" "+obj.basename2+" ]";
+            //opstep=opstep+"[ "+obj.name+" "+obj.basename1+" "+obj.basename2+" ]";
         }
 
     }

@@ -91,12 +91,16 @@ function subtract() {
         oplog.push("sub");
     showoplog();
 
-    if(stageI[0]==2||stageI[0]==3||stageI[0]==4)
+    if(Number(userG[0])!=2)
     {
-        step_win();
+        if(stageI[0]==2||stageI[0]==3||stageI[0]==4)
+        {
+            step_win();
+        }
+        var win=check_win();
+        if(win!=-1) alert("Congratulate!!");
     }
-    var win=check_win();
-    if(win!=-1) alert("Congratulate!!");
+
 }
 
 function union() {
@@ -151,12 +155,15 @@ function union() {
         else
             oplog.push("union1");
     showoplog();
-    if(stageI[0]==2||stageI[0]==3||stageI[0]==4)
+    if(Number(userG[0])!=2)
     {
-        step_win();
+        if(stageI[0]==2||stageI[0]==3||stageI[0]==4)
+        {
+            step_win();
+        }
+        var win=check_win();
+        if(win!=-1) alert("Congratulate!!");
     }
-    var win=check_win();
-    if(win!=-1) alert("Congratulate!!");
 }
 
 function intersect() {
@@ -208,12 +215,15 @@ function intersect() {
             return -1;
         oplog.push("common");
     showoplog();
-    if(stageI[0]==2||stageI[0]==3||stageI[0]==4)
+    if(Number(userG[0])!=2)
     {
-        step_win();
+        if(stageI[0]==2||stageI[0]==3||stageI[0]==4)
+        {
+            step_win();
+        }
+        var win=check_win();
+        if(win!=-1) alert("Congratulate!!");
     }
-    var win=check_win();
-    if(win!=-1) alert("Congratulate!!");
 }
 
 function Restart() {
@@ -306,7 +316,7 @@ function GoBack() {
     }
     steplog=steplog+" GoBack, ";
     oplog.pop();
-    opstep.pop();
+    //opstep.pop();
     showoplog();
 
 }
