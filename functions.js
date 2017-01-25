@@ -80,16 +80,34 @@ function getstageindex() {
     stageI.push(mid);
 }
 
+function getuserHISOP() {
+    if(Number(stageI[0])!=3||Number(stageI[0])!=4)
+        return -1;
+    var query = window.location.search.substring(1);
+    var vars = query.split("&");
+    var mid;
+    for (i in vars) {
+        var pair = vars[i].split("=");
+        if(pair[0]=="HISOP"){
+            mid=pair[1];
+        }
+    }
+    usedsq.push(mid);
+
+}
+
 function submit() {
     var stageexp=stages[stageI[0]];
     var stageindex=Number(stageI[0])+1;
     var goal = parent.window.document.getElementById("Goalwindow");
     var tutor=parent.window.document.getElementById("Tutorial");
-    steplog=steplog+" , "+stageexp+"_end;";
-    attack_a("Logs/steplog.php","&MID="+userID[0],"&log="+steplog);
+    //steplog=steplog+" , "+stageexp+"_end;";
+    //attack_a("Logs/steplog.php","&MID="+userID[0],"&log="+steplog);
     switch(Number(stageI[0])){
         case 0:
             //direct to pre-test
+            steplog=steplog+" , "+stageexp+"_end;";
+            attack_a("Logs/steplog.php","&MID="+userID[0],"&log="+steplog);
             window.location.replace('csgtest.html?MID='+userID[0]+'&GROUP='+userG[0]+'&STAGE='+stageindex);
             break;
         case 1:
@@ -108,6 +126,8 @@ function submit() {
             }
             else
                 steplog=steplog+opstep;
+            steplog=steplog+" , "+stageexp+"_end;";
+            attack_a("Logs/steplog.php","&MID="+userID[0],"&log="+steplog);
             window.location.replace('csgtest.html?MID='+userID[0]+'&GROUP='+userG[0]+'&STAGE='+stageindex);
             goal.innerHTML=null;
             tutor.innerHTML=null;
@@ -134,7 +154,9 @@ function submit() {
                 steplog=steplog+opstep;
                 steplog=steplog+" success";
             }
-            window.location.replace('csgtest.html?MID='+userID[0]+'&GROUP='+userG[0]+'&STAGE='+stageindex);
+            steplog=steplog+" , "+stageexp+"_end;";
+            attack_a("Logs/steplog.php","&MID="+userID[0],"&log="+steplog);
+            window.location.replace('csgtest.html?MID='+userID[0]+'&GROUP='+userG[0]+'&STAGE='+stageindex+'&HISOP='+usedsq);
             goal.innerHTML=null;
             tutor.innerHTML=null;
             break;
@@ -160,7 +182,9 @@ function submit() {
                 steplog=steplog+opstep;
                 steplog=steplog+" success";
             }
-            window.location.replace('csgtest.html?MID='+userID[0]+'&GROUP='+userG[0]+'&STAGE='+stageindex);
+            steplog=steplog+" , "+stageexp+"_end;";
+            attack_a("Logs/steplog.php","&MID="+userID[0],"&log="+steplog);
+            window.location.replace('csgtest.html?MID='+userID[0]+'&GROUP='+userG[0]+'&STAGE='+stageindex+'&HISOP='+usedsq);
             goal.innerHTML=null;
             tutor.innerHTML=null;
             break;
@@ -186,6 +210,8 @@ function submit() {
                 steplog=steplog+opstep;
                 steplog=steplog+" success";
             }
+            steplog=steplog+" , "+stageexp+"_end;";
+            attack_a("Logs/steplog.php","&MID="+userID[0],"&log="+steplog);
             window.location.replace('csgtest.html?MID='+userID[0]+'&GROUP='+userG[0]+'&STAGE='+stageindex);
             goal.innerHTML=null;
             tutor.innerHTML=null;
@@ -206,6 +232,8 @@ function submit() {
             }
             else
                 steplog=steplog+opstep;
+            steplog=steplog+" , "+stageexp+"_end;";
+            attack_a("Logs/steplog.php","&MID="+userID[0],"&log="+steplog);
             window.location.replace('csgtest.html?MID='+userID[0]+'&GROUP='+userG[0]+'&STAGE='+stageindex);
             goal.innerHTML=null;
             tutor.innerHTML=null;
@@ -226,6 +254,8 @@ function submit() {
             }
             else
                 steplog=steplog+opstep;
+            steplog=steplog+" , "+stageexp+"_end;";
+            attack_a("Logs/steplog.php","&MID="+userID[0],"&log="+steplog);
             window.location.replace('post-test03.html?MID='+userID[0]+'&GROUP='+userG[0]+'&STAGE='+stageindex);
             goal.innerHTML=null;
             tutor.innerHTML=null;
@@ -246,6 +276,8 @@ function submit() {
             }
             else
                 steplog=steplog+opstep;
+            steplog=steplog+" , "+stageexp+"_end;";
+            attack_a("Logs/steplog.php","&MID="+userID[0],"&log="+steplog);
             window.location.replace('post-test04.html?MID='+userID[0]+'&GROUP='+userG[0]+'&STAGE='+stageindex);
             goal.innerHTML=null;
             tutor.innerHTML=null;
@@ -266,6 +298,8 @@ function submit() {
             }
             else
                 steplog=steplog+opstep;
+            steplog=steplog+" , "+stageexp+"_end;";
+            attack_a("Logs/steplog.php","&MID="+userID[0],"&log="+steplog);
             window.location.replace('Logs/result.php');
             break;
 

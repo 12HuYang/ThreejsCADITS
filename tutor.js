@@ -53,6 +53,7 @@ function check_win() {   //under 4 steps constrains, pre-test, train_1,2,3, post
                 if(valid==1)
                 {
                     usedsq.push(ophis);
+                    alert("Congratulate!!");
                     return 1;
                 }else{
                     alert("Operation sequence has been used. Check Tutor Suggestion Window.");
@@ -72,7 +73,7 @@ function check_win() {   //under 4 steps constrains, pre-test, train_1,2,3, post
                 }
 
             }
-
+            alert("Congratulate!!");
             return 1;
         }
         rcount=0;
@@ -130,7 +131,7 @@ function check_op() {   //under 4 steps constrains, pre-test, train_1,2,3, post-
         if(obj.name=="common")
         {
             v1=rcom.indexOf(obj.basename1);
-            v2=rsub.indexOf(obj.basename2);
+            v2=rcom.indexOf(obj.basename2);
             if(v1==-1 || v2==-1)
                 return -1;
             opstep=opstep+"[ "+obj.name+" "+obj.basename1+" "+obj.basename2+" ]";
@@ -253,7 +254,7 @@ function check_step() {
                     tutorwindow.innerHTML=tutorwindow.innerHTML+"<p>Wrong geometry selection for Union, the "+rsub1[v2]+" is a good selection, but currently there is no geometry could be the second selection.</p>";
                 return -1;
             }
-            if(v1=-1&&v2==-1)
+            if(v1!=-1&&v2==-1)
             {
                 var fv=findsubcsg(v1);
                 if(fv!=-1)
@@ -288,11 +289,11 @@ function check_step() {
             if(v1!=-1&&v2==-1)
             {
                 alert("Incorrect operation. Check Tutor Suggestion Window.");
-                var fv=findcomcsg(v2);
+                var fv=findcomcsg(v1);
                 if(fv!=-1)
-                    tutorwindow.innerHTML=tutorwindow.innerHTML+"<p>Wrong geometry selection for Union, Goback and select the "+rcom1[v2]+" and the "+rcom1[fv]+".</p>";
+                    tutorwindow.innerHTML=tutorwindow.innerHTML+"<p>Wrong geometry selection for Union, Goback and select the "+rcom1[v1]+" and the "+rcom1[fv]+".</p>";
                 else
-                    tutorwindow.innerHTML=tutorwindow.innerHTML+"<p>Wrong geometry selection for Union, the "+rcom1[v2]+" is a good selection, but currently there is no geometry could be the second selection.</p>";
+                    tutorwindow.innerHTML=tutorwindow.innerHTML+"<p>Wrong geometry selection for Union, the "+rcom1[v1]+" is a good selection, but currently there is no geometry could be the second selection.</p>";
                 return -1;
             }
             if(v1==-1&&v2==-1)

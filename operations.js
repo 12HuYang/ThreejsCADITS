@@ -97,8 +97,8 @@ function subtract() {
         {
             step_win();
         }
-        var win=check_win();
-        if(win!=-1) alert("Congratulate!!");
+        //var win=check_win();
+        //if(win!=-1) alert("Congratulate!!");
     }
 
 }
@@ -161,8 +161,8 @@ function union() {
         {
             step_win();
         }
-        var win=check_win();
-        if(win!=-1) alert("Congratulate!!");
+       // var win=check_win();
+       // if(win!=-1) alert("Congratulate!!");
     }
 }
 
@@ -221,8 +221,8 @@ function intersect() {
         {
             step_win();
         }
-        var win=check_win();
-        if(win!=-1) alert("Congratulate!!");
+       // var win=check_win();
+       // if(win!=-1) alert("Congratulate!!");
     }
 }
 
