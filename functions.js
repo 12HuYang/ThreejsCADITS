@@ -279,7 +279,12 @@ function submit() {
                 steplog=steplog+" success";
             }
             else
+            {
                 steplog=steplog+opstep;
+                var r=confirm("Current sequence is incorrect, do you want to try one more time?");
+                if(r)
+                    return -1;
+            }
             steplog=steplog+" , "+stageexp+"_end;";
             attack_a("Logs/steplog.php","&MID="+userID[0],"&log="+steplog);
             window.location.replace('post-test03.html?MID='+userID[0]+'&GROUP='+userG[0]+'&STAGE='+stageindex);

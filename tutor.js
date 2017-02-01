@@ -46,37 +46,47 @@ function check_win() {   //under 4 steps constrains, pre-test, train_1,2,3, post
             //alert("Congratulate !!");
             //steplog=steplog+opstep;
             //steplog=steplog+" success";
-            if(stageI[0]==2||stageI[0]==3||stageI[0]==4)
+            if(Number(userG)==1||Number(userG)==3){
+                if(Number(stageI[0])==2||Number(stageI[0])==3||Number(stageI[0]==4))
+                {
+                    var tutorwindow=parent.frames['tutor'].document.getElementById("tutorcontent");
+                    var valid=checkusedsq(ophis);
+                    if(valid==1)
+                    {
+                        usedsq.push(ophis);
+                        alert("Congratulate!!");
+                        return 1;
+                    }else{
+                        alert("Operation sequence has been used. Check Tutor Suggestion Window.");
+                        var opsq=[];
+                        for(var k=0;k<ophis.length;k++){
+                            if(ophis[k]==1)
+                                opsq=opsq+"union, ";
+                            if(ophis[k]==2)
+                                opsq=opsq+"union, ";
+                            if(ophis[k]==3)
+                                opsq=opsq+"intersect, ";
+                            if(ophis[k]==4)
+                                opsq=opsq+"subtract, ";
+                        }
+                        tutorwindow.innerHTML=tutorwindow.innerHTML+"<p>Current operation order"+ " [ "+opsq+" ] "+"has been used before, try other orders.</p>";
+                        return -1;
+                    }
+
+                }
+            }
+            if(Number(stageI[0])==5||Number(stageI[0])==6)
             {
-                var tutorwindow=parent.frames['tutor'].document.getElementById("tutorcontent");
                 var valid=checkusedsq(ophis);
                 if(valid==1)
                 {
                     usedsq.push(ophis);
                     alert("Congratulate!!");
                     return 1;
-                }else{
-                    if(Number(stageI[0]==6))
-                    {
-                        alert("Operation sequence has been used. Try other sequence.");
-                        return -1;
-                    }
-                    alert("Operation sequence has been used. Check Tutor Suggestion Window.");
-                    var opsq=[];
-                    for(var k=0;k<ophis.length;k++){
-                        if(ophis[k]==1)
-                            opsq=opsq+"union, ";
-                        if(ophis[k]==2)
-                            opsq=opsq+"union, ";
-                        if(ophis[k]==3)
-                            opsq=opsq+"intersect, ";
-                        if(ophis[k]==4)
-                            opsq=opsq+"subtract, ";
-                    }
-                    tutorwindow.innerHTML=tutorwindow.innerHTML+"<p>Current operation order"+ " [ "+opsq+" ] "+"has been used before, try other orders.</p>";
+                }else {
+                    alert("Operation sequence has been used. Try other sequence.");
                     return -1;
                 }
-
             }
             alert("Congratulate!!");
             return 1;
