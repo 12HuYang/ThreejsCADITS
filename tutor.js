@@ -56,6 +56,11 @@ function check_win() {   //under 4 steps constrains, pre-test, train_1,2,3, post
                     alert("Congratulate!!");
                     return 1;
                 }else{
+                    if(Number(stageI[0]==6))
+                    {
+                        alert("Operation sequence has been used. Try other sequence.");
+                        return -1;
+                    }
                     alert("Operation sequence has been used. Check Tutor Suggestion Window.");
                     var opsq=[];
                     for(var k=0;k<ophis.length;k++){
@@ -241,7 +246,7 @@ function check_step() {
             if(rsub[v2]!="union")
             {
                 alert("Incorrect operation. Check Tutor Suggestion Window.");
-                tutorwindow.innerHTML=tutorwindow.innerHTML+"<p>Wrong second selection for Subtract, it should be a result of union of two geometries.</p>";
+                tutorwindow.innerHTML=tutorwindow.innerHTML+"<p>Wrong second selection for Subtract, it should be a union of geometries.</p>";
                 return -1;
             }
             if(v1==-1 && v2!=-1)
@@ -249,18 +254,18 @@ function check_step() {
                 alert("Incorrect operation. Check Tutor Suggestion Window.");
                 var fv=findsubcsg(v2);
                 if(fv!=-1)
-                    tutorwindow.innerHTML=tutorwindow.innerHTML+"<p>Wrong geometry selection for Union, Goback and select the "+rsub1[v2]+" and the "+rsub1[fv]+".</p>";
+                    tutorwindow.innerHTML=tutorwindow.innerHTML+"<p>Wrong geometry selection for Subtract, Goback and select the "+rsub1[v2]+" and the "+rsub1[fv]+".</p>";
                 else
-                    tutorwindow.innerHTML=tutorwindow.innerHTML+"<p>Wrong geometry selection for Union, the "+rsub1[v2]+" is a good selection, but currently there is no geometry could be the second selection.</p>";
+                    tutorwindow.innerHTML=tutorwindow.innerHTML+"<p>Wrong geometry selection for Subtract, the "+rsub1[v2]+" is a good selection, but currently there is no geometry could be the second selection.</p>";
                 return -1;
             }
             if(v1!=-1&&v2==-1)
             {
                 var fv=findsubcsg(v1);
                 if(fv!=-1)
-                    tutorwindow.innerHTML=tutorwindow.innerHTML+"<p>Wrong geometry selection for Union, Goback and select the "+rsub1[v1]+" and the "+rsub1[fv]+".</p>";
+                    tutorwindow.innerHTML=tutorwindow.innerHTML+"<p>Wrong geometry selection for Subtract, Goback and select the "+rsub1[v1]+" and the "+rsub1[fv]+".</p>";
                 else
-                    tutorwindow.innerHTML=tutorwindow.innerHTML+"<p>Wrong geometry selection for Union, the "+rsub1[v1]+" is a good selection, but currently there is no geometry could be the second selection.</p>";
+                    tutorwindow.innerHTML=tutorwindow.innerHTML+"<p>Wrong geometry selection for Subtract, the "+rsub1[v1]+" is a good selection, but currently there is no geometry could be the second selection.</p>";
                 return -1;
             }
             if(v1==-1&&v2==-1)
@@ -281,9 +286,9 @@ function check_step() {
                 alert("Incorrect operation. Check Tutor Suggestion Window.");
                 var fv=findcomcsg(v2);
                 if(fv!=-1)
-                    tutorwindow.innerHTML=tutorwindow.innerHTML+"<p>Wrong geometry selection for Union, Goback and select the "+rcom1[v2]+" and the "+rcom1[fv]+".</p>";
+                    tutorwindow.innerHTML=tutorwindow.innerHTML+"<p>Wrong geometry selection for Intersect, Goback and select the "+rcom1[v2]+" and the "+rcom1[fv]+".</p>";
                 else
-                    tutorwindow.innerHTML=tutorwindow.innerHTML+"<p>Wrong geometry selection for Union, the "+rcom1[v2]+" is a good selection, but currently there is no geometry could be the second selection.</p>";
+                    tutorwindow.innerHTML=tutorwindow.innerHTML+"<p>Wrong geometry selection for Intersect, the "+rcom1[v2]+" is a good selection, but currently there is no geometry could be the second selection.</p>";
                 return -1;
             }
             if(v1!=-1&&v2==-1)
@@ -291,9 +296,9 @@ function check_step() {
                 alert("Incorrect operation. Check Tutor Suggestion Window.");
                 var fv=findcomcsg(v1);
                 if(fv!=-1)
-                    tutorwindow.innerHTML=tutorwindow.innerHTML+"<p>Wrong geometry selection for Union, Goback and select the "+rcom1[v1]+" and the "+rcom1[fv]+".</p>";
+                    tutorwindow.innerHTML=tutorwindow.innerHTML+"<p>Wrong geometry selection for Intersect, Goback and select the "+rcom1[v1]+" and the "+rcom1[fv]+".</p>";
                 else
-                    tutorwindow.innerHTML=tutorwindow.innerHTML+"<p>Wrong geometry selection for Union, the "+rcom1[v1]+" is a good selection, but currently there is no geometry could be the second selection.</p>";
+                    tutorwindow.innerHTML=tutorwindow.innerHTML+"<p>Wrong geometry selection for Intersect, the "+rcom1[v1]+" is a good selection, but currently there is no geometry could be the second selection.</p>";
                 return -1;
             }
             if(v1==-1&&v2==-1)

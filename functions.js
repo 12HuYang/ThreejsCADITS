@@ -81,19 +81,45 @@ function getstageindex() {
 }
 
 function getuserHISOP() {
-    if(Number(stageI[0])!=3||Number(stageI[0])!=4)
-        return -1;
-    var query = window.location.search.substring(1);
-    var vars = query.split("&");
-    var mid;
-    for (i in vars) {
-        var pair = vars[i].split("=");
-        if(pair[0]=="HISOP"){
-            mid=pair[1];
+    if(Number(stageI[0])==3||Number(stageI[0])==4||Number(stageI[0])==6)
+    {
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        var mid;
+        for (i in vars) {
+            var pair = vars[i].split("=");
+            if(pair[0]=="HISOP"){
+                mid=pair[1];
+            }
         }
-    }
-    usedsq.push(mid);
+        var ele=mid.split(",");
+        for (i=0;i<ele.length;i++)
+        {
+            sele=ele[i];
+            nele=Number(sele);
+            ele.splice(i,1,nele);
+        }
+        if(ele.length/4==1){
+            usedsq.push(ele);
+        }
+        if(ele.length/4==2){
+            first=ele.slice(0,4);
+            second=ele.slice(4,8);
+            usedsq.push(first);
+            usedsq.push(second);
+        }
 
+        /*if(ele.length>4)
+        {
+            first4=ele.slice(0,4);
+            second4=ele.slice(4,8);
+            ele=[];
+            ele.push(first4);
+            ele.push(second4);
+        }
+        usedsq.push(ele);*/
+    }else
+        return -1;
 }
 
 function submit() {
@@ -234,7 +260,7 @@ function submit() {
                 steplog=steplog+opstep;
             steplog=steplog+" , "+stageexp+"_end;";
             attack_a("Logs/steplog.php","&MID="+userID[0],"&log="+steplog);
-            window.location.replace('csgtest.html?MID='+userID[0]+'&GROUP='+userG[0]+'&STAGE='+stageindex);
+            window.location.replace('csgtest.html?MID='+userID[0]+'&GROUP='+userG[0]+'&STAGE='+stageindex+'&HISOP='+usedsq);
             goal.innerHTML=null;
             tutor.innerHTML=null;
             break;
