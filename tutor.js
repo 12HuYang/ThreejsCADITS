@@ -8,6 +8,28 @@ function check_complete() {
     return 1;
 }
 
+function check_win2() {
+    if(oplog.length!=4)
+        return -1;
+    var ophis=[];
+    for(var i=0;i<csgobjs.length;i++)
+    {
+        var obj=csgobjs[i];
+        if(obj.name=="common")
+        {
+            if(ophis.indexOf(2)!=-1)
+                ophis.push(3);
+            else
+                ophis.push(2);
+        }
+        if(obj.name=="subtract")
+            ophis.push(4);
+        if(obj.name=="union")
+            ophis.push(1);
+    }
+    
+}
+
 function check_win() {   //under 4 steps constrains, pre-test, train_1,2,3, post-test 1,2,3
     if(oplog.length!=4)
         return -1;
