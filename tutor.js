@@ -52,9 +52,9 @@ function check_win2() {
 }
 
 function check_op2() {   //under 4 steps constrains, pre-test, train_1,2,3, post-test 1,2,3
-    var runion=["cyy","cyx","exsphere","cyz","common"];
+    var runion=["cyy","cyx","exsphere","cyz","common","subtract"];
     var rsub=["excube","common","cyx","cyz","exsphere"];
-    var rcom=["cyx","cyz","exsphere","common"];
+    var rcom=["cyx","cyz","exsphere","common","subtract"];
     if(oplog.length!=4)
         return -1;
     for(var i=0;i<csgobjs.length;i++)
