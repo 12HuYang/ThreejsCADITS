@@ -332,6 +332,8 @@ function submit() {
             steplog=steplog+" , "+stageexp+"_end;";
             attack_a("Logs/steplog.php","&MID="+userID[0],"&log="+steplog);
             window.location.replace('Logs/result.php');
+            goal.innerHTML=null;
+            tutor.innerHTML=null;
             break;
 
     }

@@ -144,17 +144,39 @@
     showoplog();
 
 
-
-
     function showtutor() {
-        if(tutorialwindow) return -1;
-        if(Number(stageI[0])==2 || Number(stageI[0])==3||Number(stageI[0])==4)
-        {
-            var goal=parent.window.document.getElementById("Tutorial");
-            var goalcontent="<iframe name='tutor' src='tutorial.html' width='500' height='400' frameborder='0' style='float: left; margin-left: 1em' scrolling='no'></iframe>";
+        if (tutorialwindow) return -1;
+        if (Number(stageI[0]) == 2 || Number(stageI[0]) == 3 || Number(stageI[0]) == 4) {
+            if (Number(userG[0]) == 1) {
+                var goal = parent.window.document.getElementById("Tutorial");
+                var goalcontent = "<iframe name='tutor' src='tutorial.html' width='500' height='400' frameborder='0' style='float: left; margin-left: 1em' scrolling='yes'></iframe>";
+                goal.innerHTML = goal.innerHTML + goalcontent;
+                tutorialwindow = true;
+            }
+            if (Number(userG[0]) == 3) {
+                var goal = parent.window.document.getElementById("Tutorial");
+                if (Number(stageI[0]) == 2)
+                    var goalcontent = "<iframe name='tutor' src='tutorial.html#method1' width='500' height='500' frameborder='0' style='float: left; margin-left: 1em' scrolling='yes'></iframe>";
+                if (Number(stageI[0]) == 3)
+                    var goalcontent = "<iframe name='tutor' src='tutorial.html#method2' width='500' height='500' frameborder='0' style='float: left; margin-left: 1em' scrolling='yes'></iframe>";
+                if (Number(stageI[0] == 4)) {
+                    var goalcontent = "<iframe name='tutor' src='tutorial.html' width='500' height='400' frameborder='0' style='float: left; margin-left: 1em' scrolling='yes'></iframe>";
+                    goal.innerHTML = goal.innerHTML + goalcontent;
+                }
+                tutorialwindow = true;
+            }
 
-            goal.innerHTML=goal.innerHTML+goalcontent;
-            goalwindow=true;
+        if (Number(userG[0]) == 2) {
+            var goal = parent.window.document.getElementById("Tutorial");
+            if (Number(stageI[0]) == 2)
+                var goalcontent = "<iframe name='tutor' src='tutorial.html#method1' width='500' height='500' frameborder='0' style='float: left; margin-left: 1em' scrolling='yes'></iframe>";
+            if (Number(stageI[0] == 3))
+                var goalcontent = "<iframe name='tutor' src='tutorial.html#method2' width='500' height='500' frameborder='0' style='float: left; margin-left: 1em' scrolling='yes'></iframe>";
+            if (Number(stageI[0] == 4))
+                var goalcontent = "<iframe name='tutor' src='tutorial.html#method3' width='500' height='500' frameborder='0' style='float: left; margin-left: 1em' scrolling='yes'></iframe>";
+            goal.innerHTML = goal.innerHTML + goalcontent;
+            tutorialwindow = true;
+            }
         }
 
     }

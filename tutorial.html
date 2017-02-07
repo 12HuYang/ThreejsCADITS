@@ -12,6 +12,22 @@
 <div id="tutorcontent"></div>
 <script type="text/javascript">
     showstatue();
+    var operation	= window.location.hash.substr(1);
+    if(operation==="method1")
+    {
+        var content=document.getElementById("tutorcontent");
+        content.innerHTML=content.innerHTML+"<img src='images/method1.PNG' width='500' height='450'>";
+    }
+    if(operation==="method2")
+    {
+        var content=document.getElementById("tutorcontent");
+        content.innerHTML=content.innerHTML+"<img src='images/method2.PNG' width='500' height='450'>";
+    }
+    if(operation==="method3")
+    {
+        var content=document.getElementById("tutorcontent");
+        content.innerHTML=content.innerHTML+"<img src='images/method3.PNG' width='500' height='450'>";
+    }
     function showstatue() {
         var status=document.getElementById("statu");
         status.innerHTML=status.innerHTML+"<p align='center' class='solid'>Tutor suggestion</p>";
