@@ -321,7 +321,7 @@ function submit() {
                 alert("Task not done yet.");
                 return -1;
             }
-            var win=check_win();
+            var win=check_win2();
             if(win==1)
             {
                 steplog=steplog+opstep;

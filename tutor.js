@@ -27,7 +27,75 @@ function check_win2() {
         if(obj.name=="union")
             ophis.push(1);
     }
-    
+    var cop=check_op2();
+    if(cop==-1)
+        return -1;
+    var rightop=[[4,2,3,1],[4,1,2,3],[4,2,1,3],[2,3,4,1],[2,4,3,1],[2,4,1,3]];
+    var rcount=0;
+    for(i=0;i<rightop.length;i++)
+    {
+        var top=rightop[i];
+        for(var j=0;j<4;j++)
+        {
+            if(ophis[j]==top[j])
+                rcount++;
+        }
+        if(rcount==4)
+        {
+            alert("Congratulate!!");
+            return 1;
+        }
+        rcount=0;
+
+    }
+    return -1;
+}
+
+function check_op2() {   //under 4 steps constrains, pre-test, train_1,2,3, post-test 1,2,3
+    var runion=["cyy","cyx","exsphere","cyz","common"];
+    var rsub=["excube","common","cyx","cyz","exsphere"];
+    var rcom=["cyx","cyz","exsphere","common"];
+    if(oplog.length!=4)
+        return -1;
+    for(var i=0;i<csgobjs.length;i++)
+    {
+        var obj=csgobjs[i];
+        if(obj.name=="union")
+        {
+            var v1=runion.indexOf(obj.basename1);
+            var v2=runion.indexOf(obj.basename2);
+            if(v1==-1 || v2==-1)
+                return -1;
+            if(runion[v1]=="cyy"||runion[v2]=="cyy")
+            {
+                opstep=opstep+"[ "+obj.name+" "+obj.basename1+" "+obj.basename2+" ] ";
+                return 1;
+            }
+            return -1;
+        }
+        if(obj.name=="subtract")
+        {
+            v1=rsub.indexOf(obj.basename1);
+            v2=rsub.indexOf(obj.basename2);
+            if(rsub[v2]!="excube")
+                return -1;
+            if(v1==-1 || v2==-1)
+                return -1;
+            opstep=opstep+"[ "+obj.name+" "+obj.basename1+" "+obj.basename2+" ]";
+
+        }
+        if(obj.name=="common")
+        {
+            v1=rcom.indexOf(obj.basename1);
+            v2=rcom.indexOf(obj.basename2);
+            if(v1==-1 || v2==-1)
+                return -1;
+            opstep=opstep+"[ "+obj.name+" "+obj.basename1+" "+obj.basename2+" ]";
+        }
+
+    }
+
+    return 1;
 }
 
 function check_win() {   //under 4 steps constrains, pre-test, train_1,2,3, post-test 1,2,3
